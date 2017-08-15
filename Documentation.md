@@ -101,21 +101,21 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/WebMail.html
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/JSPrefs.html
 
-![Alt text](Media/HKLM/bDisableJavaScript-GPO-UI.JPG?raw=true "bDisableJavaScript-GPO-UI")
-![Alt text](Media/HKLM/bDisableJavaScript-reg.JPG?raw=true "bDisableJavaScript-reg")
-![Alt text](Media/HKLM/bDisableJavaScript-web.JPG?raw=true "bDisableJavaScript-web")
+<img src=Media/HKLM/bDisableJavaScript-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableJavaScript-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableJavaScript-web.JPG  width="600">
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/3D.html
 
-![Alt text](Media/HKLM/bEnable3D-GPO-UI.JPG?raw=true "bEnable3D-GPO-UI")
-![Alt text](Media/HKLM/bEnable3D-reg.JPG?raw=true "bEnable3D-reg")
-![Alt text](Media/HKLM/bEnable3D-web.JPG?raw=true "bEnable3D-web")
+<img src=Media/HKLM/bEnable3D-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bEnable3D-reg.JPG  width="600">
+<img src=Media/HKLM/bEnable3D-web.JPG  width="600">
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.html
 
-![Alt text](Media/HKLM/iUnknownURLPerms-GPO-UI.JPG?raw=true "iUnknownURLPerms-GPO-UI")
-![Alt text](Media/HKLM/iUnknownURLPerms-reg.JPG?raw=true "iUnknownURLPerms-reg")
-![Alt text](Media/HKLM/iUnknownURLPerms-web.JPG?raw=true "iUnknownURLPerms-web")
+<img src=Media/HKLM/iUnknownURLPerms-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/iUnknownURLPerms-reg.JPG  width="600">
+<img src=Media/HKLM/iUnknownURLPerms-web.JPG  width="600">
 
 <a name="Other"/>
 
@@ -125,39 +125,39 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/FeatureLockdown.html
 
-![Alt text](Media/HKLM/bAcroSuppressUpsell-GPO-UI.JPG?raw=true "bAcroSuppressUpsell-GPO-UI")
-![Alt text](Media/HKLM/bAcroSuppressUpsell-reg.JPG?raw=true "bAcroSuppressUpsell-reg")
-![Alt text](Media/HKLM/bAcroSuppressUpsell-web.JPG?raw=true "bAcroSuppressUpsell-web")
+<img src=Media/HKLM/bAcroSuppressUpsell-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bAcroSuppressUpsell-reg.JPG  width="600">
+<img src=Media/HKLM/bAcroSuppressUpsell-web.JPG  width="600">
 
 #### bDontShowMsgWhenViewingDoc
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/IPM.html
 
-![Alt text](Media/HKLM/bDontShowMsgWhenViewingDoc-GPO-UI.JPG?raw=true "bDontShowMsgWhenViewingDoc-GPO-UI")
-![Alt text](Media/HKLM/bDontShowMsgWhenViewingDoc-reg.JPG?raw=true "bDontShowMsgWhenViewingDoc-reg")
-![Alt text](Media/HKLM/bDontShowMsgWhenViewingDoc-web.JPG?raw=true "bDontShowMsgWhenViewingDoc-web")
+<img src=Media/HKLM/bDontShowMsgWhenViewingDoc-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDontShowMsgWhenViewingDoc-reg.JPG  width="600">
+<img src=Media/HKLM/bDontShowMsgWhenViewingDoc-web.JPG  width="600">
 
 #### bShowMsgAtLaunch
 
-![Alt text](Media/HKLM/bShowMsgAtLaunch-GPO-UI.JPG?raw=true "bShowMsgAtLaunch-GPO-UI")
-![Alt text](Media/HKLM/bShowMsgAtLaunch-reg.JPG?raw=true "bShowMsgAtLaunch-reg")
-![Alt text](Media/HKLM/bShowMsgAtLaunch-web.JPG?raw=true "bShowMsgAtLaunch-web")
+<img src=Media/HKLM/bShowMsgAtLaunch-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bShowMsgAtLaunch-reg.JPG  width="600">
+<img src=Media/HKLM/bShowMsgAtLaunch-web.JPG  width="600">
 
 #### bShowWelcomeScreen
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/AVGeneral.html
 
-![Alt text](Media/HKLM/bShowWelcomeScreen-GPO-UI.JPG?raw=true "bShowWelcomeScreen-GPO-UI")
-![Alt text](Media/HKLM/bShowWelcomeScreen-reg.JPG?raw=true "bShowWelcomeScreen-reg")
-![Alt text](Media/HKLM/bShowWelcomeScreen-web.JPG?raw=true "bShowWelcomeScreen-web")
+<img src=Media/HKLM/bShowWelcomeScreen-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bShowWelcomeScreen-reg.JPG  width="600">
+<img src=Media/HKLM/bShowWelcomeScreen-web.JPG  width="600">
 
 #### bUsageMeasurement
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/UsageMeasurement.html
 
-![Alt text](Media/HKLM/bUsageMeasurement-GPO-UI.JPG?raw=true "bUsageMeasurement-GPO-UI")
-![Alt text](Media/HKLM/bUsageMeasurement-reg.JPG?raw=true "bUsageMeasurement-reg")
-![Alt text](Media/HKLM/bUsageMeasurement-web.JPG?raw=true "bUsageMeasurement-web")
+<img src=Media/HKLM/bUsageMeasurement-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bUsageMeasurement-reg.JPG  width="600">
+<img src=Media/HKLM/bUsageMeasurement-web.JPG  width="600">
 
 <a name="Security"/>
 
@@ -167,38 +167,38 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/UsageMeasureme
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/FeatureLockdown.html
 
-![Alt text](Media/HKLM/bDisablePDFHandlerSwitching-GPO-UI.JPG?raw=true "bDisablePDFHandlerSwitching-GPO-UI")
-![Alt text](Media/HKLM/bDisablePDFHandlerSwitching-reg.JPG?raw=true "bDisablePDFHandlerSwitching-reg")
-![Alt text](Media/HKLM/bDisablePDFHandlerSwitching-web.JPG?raw=true "bDisablePDFHandlerSwitching-web")
+<img src=Media/HKLM/bDisablePDFHandlerSwitching-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisablePDFHandlerSwitching-reg.JPG  width="600">
+<img src=Media/HKLM/bDisablePDFHandlerSwitching-web.JPG  width="600">
 
 #### bEnhancedSecurityInBrowser
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.html
 
-![Alt text](Media/HKLM/bEnhancedSecurityInBrowser-GPO-UI.JPG?raw=true "bEnhancedSecurityInBrowser-GPO-UI")
-![Alt text](Media/HKLM/bEnhancedSecurityInBrowser-reg.JPG?raw=true "bEnhancedSecurityInBrowser-reg")
-![Alt text](Media/HKLM/bEnhancedSecurityInBrowser-web.JPG?raw=true "bEnhancedSecurityInBrowser-web")
+<img src=Media/HKLM/bEnhancedSecurityInBrowser-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bEnhancedSecurityInBrowser-reg.JPG  width="600">
+<img src=Media/HKLM/bEnhancedSecurityInBrowser-web.JPG  width="600">
 
 #### bEnhancedSecurityStandalone
 
-![Alt text](Media/HKLM/bEnhancedSecurityStandalone-GPO-UI.JPG?raw=true "bEnhancedSecurityStandalone-GPO-UI")
-![Alt text](Media/HKLM/bEnhancedSecurityStandalone-reg.JPG?raw=true "bEnhancedSecurityStandalone-reg")
-![Alt text](Media/HKLM/bEnhancedSecurityStandalone-web.JPG?raw=true "bEnhancedSecurityStandalone-web")
+<img src=Media/HKLM/bEnhancedSecurityStandalone-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bEnhancedSecurityStandalone-reg.JPG  width="600">
+<img src=Media/HKLM/bEnhancedSecurityStandalone-web.JPG  width="600">
 
 #### bProtectedMode
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Privileged.html
 
-![Alt text](Media/HKLM/bProtectedMode-GPO-UI.JPG?raw=true "bProtectedMode-GPO-UI")
-![Alt text](Media/HKLM/bProtectedMode-reg.JPG?raw=true "bProtectedMode-reg")
-![Alt text](Media/HKLM/bProtectedMode-web.JPG?raw=true "bProtectedMode-web")
+<img src=Media/HKLM/bProtectedMode-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bProtectedMode-reg.JPG  width="600">
+<img src=Media/HKLM/bProtectedMode-web.JPG  width="600">
 
 #### iProtectedView
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.html
 
-![Alt text](Media/HKLM/iProtectedView-GPO-UI.JPG?raw=true "iProtectedView-GPO-UI")
-![Alt text](Media/HKLM/iProtectedView-reg.JPG?raw=true "iProtectedView-reg")
-![Alt text](Media/HKLM/iProtectedView-web.JPG?raw=true "iProtectedView-web")
+<img src=Media/HKLM/iProtectedView-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/iProtectedView-reg.JPG  width="600">
+<img src=Media/HKLM/iProtectedView-web.JPG  width="600">
 
 <a name="TrustedLocations"/>
 
@@ -208,33 +208,33 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 #### bDisableOSTrustedSites
 
-![Alt text](Media/HKLM/bDisableOSTrustedSites-GPO-UI.JPG?raw=true "bDisableOSTrustedSites-GPO-UI")
-![Alt text](Media/HKLM/bDisableOSTrustedSites-reg.JPG?raw=true "bDisableOSTrustedSites-reg")
-![Alt text](Media/HKLM/bDisableOSTrustedSites-web.JPG?raw=true "bDisableOSTrustedSites-web")
+<img src=Media/HKLM/bDisableOSTrustedSites-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableOSTrustedSites-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableOSTrustedSites-web.JPG  width="600">
 
 #### bDisableTrustedFolders
 
-![Alt text](Media/HKLM/bDisableTrustedFolders-GPO-UI.JPG?raw=true "bDisableTrustedFolders-GPO-UI")
-![Alt text](Media/HKLM/bDisableTrustedFolders-reg.JPG?raw=true "bDisableTrustedFolders-reg")
-![Alt text](Media/HKLM/bDisableTrustedFolders-web.JPG?raw=true "bDisableTrustedFolders-web")
+<img src=Media/HKLM/bDisableTrustedFolders-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableTrustedFolders-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableTrustedFolders-web.JPG  width="600">
 
 #### bDisableTrustedSites
 
-![Alt text](Media/HKLM/bDisableTrustedSites-GPO-UI.JPG?raw=true "bDisableTrustedSites-GPO-UI")
-![Alt text](Media/HKLM/bDisableTrustedSites-reg.JPG?raw=true "bDisableTrustedSites-reg")
-![Alt text](Media/HKLM/bDisableTrustedSites-web.JPG?raw=true "bDisableTrustedSites-web")
+<img src=Media/HKLM/bDisableTrustedSites-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableTrustedSites-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableTrustedSites-web.JPG  width="600">
 
 #### bEnableCertificateBasedTrust-
 
-![Alt text](Media/HKLM/bEnableCertificateBasedTrust-GPO-UI.JPG?raw=true "bEnableCertificateBasedTrust-GPO-UI")
-![Alt text](Media/HKLM/bEnableCertificateBasedTrust-reg.JPG?raw=true "bEnableCertificateBasedTrust-reg")
-![Alt text](Media/HKLM/bEnableCertificateBasedTrust-web.JPG?raw=true "bEnableCertificateBasedTrust-web")
+<img src=Media/HKLM/bEnableCertificateBasedTrust-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bEnableCertificateBasedTrust-reg.JPG  width="600">
+<img src=Media/HKLM/bEnableCertificateBasedTrust-web.JPG  width="600">
 
 #### iURLPerms
 
-![Alt text](Media/HKLM/iURLPerms-GPO-UI.JPG?raw=true "iURLPerms-GPO-UI")
-![Alt text](Media/HKLM/iURLPerms-reg.JPG?raw=true "iURLPerms-reg")
-![Alt text](Media/HKLM/iURLPerms-web.JPG?raw=true "iURLPerms-web")
+<img src=Media/HKLM/iURLPerms-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/iURLPerms-reg.JPG  width="600">
+<img src=Media/HKLM/iURLPerms-web.JPG  width="600">
 
 <a name="Updater"/>
 
@@ -244,17 +244,17 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Updater-Win.html
 
-![Alt text](Media/HKLM/bUpdater-GPO-UI.JPG?raw=true "bUpdater-GPO-UI")
-![Alt text](Media/HKLM/bUpdater-reg.JPG?raw=true "bUpdater-reg")
-![Alt text](Media/HKLM/bUpdater-web.JPG?raw=true "bUpdater-web")
+<img src=Media/HKLM/bUpdater-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bUpdater-reg.JPG  width="600">
+<img src=Media/HKLM/bUpdater-web.JPG  width="600">
 
 #### bUpdater
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
-![Alt text](Media/HKLM/cServices-bUpdater-GPO-UI.JPG?raw=true "cServices-bUpdater-GPO-UI")
-![Alt text](Media/HKLM/cServices-bUpdater-reg.JPG?raw=true "cServices-bUpdater-reg")
-![Alt text](Media/HKLM/cServices-bUpdater-web.JPG?raw=true "cServices-bUpdater-web")
+<img src=Media/HKLM/cServices-bUpdater-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/cServices-bUpdater-reg.JPG  width="600">
+<img src=Media/HKLM/cServices-bUpdater-web.JPG  width="600">
 
 <a name="HKCU"/>
 
@@ -266,30 +266,30 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
 #### b3DEnableContent
 
-![Alt text](Media/HKCU/b3DEnableContent-GPO-UI.JPG?raw=true "b3DEnableContent-GPO-UI")
-![Alt text](Media/HKCU/b3DEnableContent-reg.JPG?raw=true "b3DEnableContent-reg")
-![Alt text](Media/HKCU/b3DEnableContent-web.JPG?raw=true "b3DEnableContent-web")
+<img src=Media/HKCU/b3DEnableContent-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/b3DEnableContent-reg.JPG  width="600">
+<img src=Media/HKCU/b3DEnableContent-web.JPG  width="600">
 
 #### bSecureOpenFile
 
-![Alt text](Media/HKCU/bSecureOpenFile-GPO-UI.JPG?raw=true "bSecureOpenFile-GPO-UI")
-![Alt text](Media/HKCU/bSecureOpenFile-reg.JPG?raw=true "bSecureOpenFile-reg")
+<img src=Media/HKCU/bSecureOpenFile-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bSecureOpenFile-reg.JPG  width="600">
 
 #### bAllowOpenFile
 
-![Alt text](Media/HKCU/bAllowOpenFile-GPO-UI.JPG?raw=true "bAllowOpenFile-GPO-UI")
-![Alt text](Media/HKCU/bAllowOpenFile-reg.JPG?raw=true "bAllowOpenFile-reg")
+<img src=Media/HKCU/bAllowOpenFile-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bAllowOpenFile-reg.JPG  width="600">
 
 #### bAutoUriDetect
 
-![Alt text](Media/HKCU/bAutoUriDetect-GPO-UI.JPG?raw=true "bAutoUriDetect-GPO-UI")
-![Alt text](Media/HKCU/bAutoUriDetect-reg.JPG?raw=true "bAutoUriDetect-reg")
+<img src=Media/HKCU/bAutoUriDetect-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bAutoUriDetect-reg.JPG  width="600">
 
 #### bEnableJS
 
-![Alt text](Media/HKCU/bEnableJS-GPO-UI.JPG?raw=true "bEnableJS-GPO-UI")
-![Alt text](Media/HKCU/bEnableJS-reg.JPG?raw=true "bEnableJS-reg")
-![Alt text](Media/HKCU/bEnableJS-web.JPG?raw=true "bEnableJS-web")
+<img src=Media/HKCU/bEnableJS-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bEnableJS-reg.JPG  width="600">
+<img src=Media/HKCU/bEnableJS-web.JPG  width="600">
 
 <a name="HKCUSecurity"/>
 
@@ -299,32 +299,34 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Security.html
 
 #### bAskBeforeInstalling
 
-![Alt text](Media/HKCU/bAskBeforeInstalling-AATL-GPO-UI.JPG?raw=true "bAskBeforeInstalling-AATL-GPO-UI")
-![Alt text](Media/HKCU/bAskBeforeInstalling-AATL-reg.JPG?raw=true "bAskBeforeInstalling-AATL-reg")
-![Alt text](Media/HKCU/bAskBeforeInstalling-AATL-web.JPG?raw=true "bAskBeforeInstalling-AATL-web")
+<img src=Media/HKCU/bAskBeforeInstalling-AATL-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bAskBeforeInstalling-AATL-reg.JPG  width="600">
+<img src=Media/HKCU/bAskBeforeInstalling-AATL-web.JPG  width="600">
 
 #### bAskBeforeInstalling
 
-![Alt text](Media/HKCU/bAskBeforeInstalling-EUTL-GPO-UI.JPG?raw=true "bAskBeforeInstalling-EUTL-GPO-UI")
-![Alt text](Media/HKCU/bAskBeforeInstalling-EUTL-reg.JPG?raw=true "bAskBeforeInstalling-EUTL-reg")
-![Alt text](Media/HKCU/bAskBeforeInstalling-EUTL-web.JPG?raw=true "bAskBeforeInstalling-EUTL-web")
+<img src=Media/HKCU/bAskBeforeInstalling-EUTL-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bAskBeforeInstalling-EUTL-reg.JPG  width="600">
+<img src=Media/HKCU/bAskBeforeInstalling-EUTL-web.JPG  width="600">
 
 #### bLoadSettingsFromURL
 
-![Alt text](Media/HKCU/bLoadSettingsFromURL-AATL-GPO-UI.JPG?raw=true "bLoadSettingsFromURL-AATL-GPO-UI")
-![Alt text](Media/HKCU/bLoadSettingsFromURL-AATL-reg.JPG?raw=true "bLoadSettingsFromURL-AATL-reg")
-![Alt text](Media/HKCU/bLoadSettingsFromURL-AATL-web.JPG?raw=true "bLoadSettingsFromURL-AATL-web")
+<img src=Media/HKCU/bLoadSettingsFromURL-AATL-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bLoadSettingsFromURL-AATL-reg.JPG  width="600">
+<img src=Media/HKCU/bLoadSettingsFromURL-AATL-web.JPG  width="600">
+
 
 #### bLoadSettingsFromURL
 
-![Alt text](Media/HKCU/bLoadSettingsFromURL-EUTL-reg.JPG?raw=true "bLoadSettingsFromURL-EUTL-reg")
+<img src=Media/HKCU/bLoadSettingsFromURL-EUTL-web.JPG  width="600">
 
 #### iProtectedView
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.html
 
-![Alt text](Media/HKCU/iProtectedView-GPO-UI.JPG?raw=true "iProtectedView-GPO-UI")
-![Alt text](Media/HKCU/iProtectedView-reg.JPG?raw=true "iProtectedView-reg")
+<img src=Media/HKCU/iProtectedView-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/iProtectedView-reg.JPG  width="600">
+<img src=Media/HKCU/iProtectedView-web.JPG  width="600">
 
 <a name="HKCUTrustedLocations"/>
 
@@ -333,17 +335,17 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 #### bFipsMode
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/AVGeneral.html
 
-![Alt text](Media/HKCU/bFipsMode-GPO-UI.JPG?raw=true "bFipsMode-GPO-UI")
-![Alt text](Media/HKCU/bFipsMode-reg.JPG?raw=true "bFipsMode-reg")
-![Alt text](Media/HKCU/bFipsMode-web.JPG?raw=true "bFipsMode-web")
+<img src=Media/HKCU/bFipsMode-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bFipsMode-reg.JPG  width="600">
+<img src=Media/HKCU/bFipsMode-web.JPG  width="600">
 
 #### bTrustOSTrustedSites
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.html
 
-![Alt text](Media/HKCU/bTrustOSTrustedSites-GPO-UI.JPG?raw=true "bTrustOSTrustedSites-GPO-UI")
-![Alt text](Media/HKCU/bTrustOSTrustedSites-reg.JPG?raw=true "bTrustOSTrustedSites-reg")
-![Alt text](Media/HKCU/bTrustOSTrustedSites-web.JPG?raw=true "bTrustOSTrustedSites-web")
+<img src=Media/HKCU/bTrustOSTrustedSites-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bTrustOSTrustedSites-reg.JPG  width="600">
+<img src=Media/HKCU/bTrustOSTrustedSites-web.JPG  width="600">
 
 <a name="HKCUUpdater"/>
 
@@ -353,6 +355,6 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/AdobeViewer.html
 
-![Alt text](Media/HKCU/EULA-GPO-UI.JPG?raw=true "EULA-GPO-UI")
-![Alt text](Media/HKCU/EULA-reg.JPG?raw=true "EULA-reg")
-![Alt text](Media/HKCU/EULA-web.JPG?raw=true "EULA-web")
+<img src=Media/HKCU/EULA-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/EULA-reg.JPG  width="600">
+<img src=Media/HKCU/EULA-web.JPG  width="600">
