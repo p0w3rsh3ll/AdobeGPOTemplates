@@ -5,7 +5,7 @@ AdobeGPOTemplates PowerShell Module
 
 ## Table of Contents  
 * [HKLM](#HKLM)
-  * [CloudServices](#Cloud Services)
+  * [Cloud Services](#CloudServices)
   * [Embedded Content](#Embedded Content)
   * [Other](#Other)
   * [Security](#Security)
@@ -36,6 +36,8 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 <img src="https://github.com/favicon.ico" width="48">
 
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG "bAdobeSendPluginToggle-GPO-UI")
+<img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="48">
+
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-reg.JPG?raw=true "bAdobeSendPluginToggle-reg")
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-web.JPG?raw=true "bAdobeSendPluginToggle-web")
 
