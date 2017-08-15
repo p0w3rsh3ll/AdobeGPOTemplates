@@ -32,12 +32,9 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
 #### bAdobeSendPluginToggle
 
-![test](https://github.com/favicon.ico)
-<img src="https://github.com/favicon.ico" width="48">
-
-![Alt text](Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG "bAdobeSendPluginToggle-GPO-UI")
-<img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="480">
-
+<img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bAdobeSendPluginToggle-reg.JPG  width="600">
+<img src=Media/HKLM/bAdobeSendPluginToggle-web.JPG  width="600">
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-reg.JPG?raw=true "bAdobeSendPluginToggle-reg")
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-web.JPG?raw=true "bAdobeSendPluginToggle-web")
 
