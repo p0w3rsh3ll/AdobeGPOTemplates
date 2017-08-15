@@ -17,7 +17,7 @@ AdobeGPOTemplates PowerShell Module
   * [Trusted Locations](#HKCUTrustedLocations)
   * [Updater](#HKCUUpdater)
 
-http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html
+[http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html](http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html)
 
 <a name="HKLM"/>
 
@@ -27,72 +27,73 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html
 
 ### Cloud Services
 
-http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/services.html
-http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
+[http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/services.html](http://www.adobe.com/devnet-docs/acrobatetk/tools/AdminGuide/services.html)
+
+[http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html](http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html)
+
 
 #### bAdobeSendPluginToggle
 
 <img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="600">
 <img src=Media/HKLM/bAdobeSendPluginToggle-reg.JPG  width="600">
 <img src=Media/HKLM/bAdobeSendPluginToggle-web.JPG  width="600">
-![Alt text](Media/HKLM/bAdobeSendPluginToggle-reg.JPG?raw=true "bAdobeSendPluginToggle-reg")
-![Alt text](Media/HKLM/bAdobeSendPluginToggle-web.JPG?raw=true "bAdobeSendPluginToggle-web")
+
 
 #### bDisableSharePointFeatures
 
-![Alt text](Media/HKLM/bDisableSharePointFeatures-GPO-UI.JPG?raw=true "bDisableSharePointFeatures-GPO-UI")
-![Alt text](Media/HKLM/bDisableSharePointFeatures-reg.JPG?raw=true "bDisableSharePointFeatures-reg")
-![Alt text](Media/HKLM/bDisableSharePointFeatures-web.JPG?raw=true "bDisableSharePointFeatures-web")
+<img src=Media/HKLM/bDisableSharePointFeatures-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableSharePointFeatures-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableSharePointFeatures-web.JPG  width="600">
 
 #### bToggleAdobeDocumentServices
 
-![Alt text](Media/HKLM/bToggleAdobeDocumentServices-GPO-UI.JPG?raw=true "bToggleAdobeDocumentServices-GPO-UI")
-![Alt text](Media/HKLM/bToggleAdobeDocumentServices-reg.JPG?raw=true "bToggleAdobeDocumentServices-reg")
-![Alt text](Media/HKLM/bToggleAdobeDocumentServices-web.JPG?raw=true "bToggleAdobeDocumentServices-web")
+<img src=Media/HKLM/bToggleAdobeDocumentServices-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bToggleAdobeDocumentServices-reg.JPG  width="600">
+<img src=Media/HKLM/bToggleAdobeDocumentServices-web.JPG  width="600">
 
 #### bToggleAdobeSign
 
-![Alt text](Media/HKLM/bToggleAdobeSign-GPO-UI.JPG?raw=true "bToggleAdobeSign-GPO-UI")
-![Alt text](Media/HKLM/bToggleAdobeSign-reg.JPG?raw=true "bToggleAdobeSign-reg")
-![Alt text](Media/HKLM/bToggleAdobeSign-web.JPG?raw=true "bToggleAdobeSign-reg")
+<img src=Media/HKLM/bToggleAdobeSign-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bToggleAdobeSign-reg.JPG  width="600">
+<img src=Media/HKLM/bToggleAdobeSign-web.JPG  width="600">
 
 #### bToggleFillSign
 
-![Alt text](Media/HKLM/bToggleFillSign-GPO-UI.JPG?raw=true "bToggleFillSign-GPO-UI")
-![Alt text](Media/HKLM/bToggleFillSign-reg.JPG?raw=true "bToggleFillSign-reg")
-![Alt text](Media/HKLM/bToggleFillSign-web.JPG?raw=true "bToggleFillSign-web")
+<img src=Media/HKLM/bToggleFillSign-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bToggleFillSign-reg.JPG  width="600">
+<img src=Media/HKLM/bToggleFillSign-web.JPG  width="600">
 
 #### bTogglePrefsSync
 
-![Alt text](Media/HKLM/bTogglePrefsSync-GPO-UI.JPG?raw=true "bTogglePrefsSync-GPO-UI")
-![Alt text](Media/HKLM/bTogglePrefsSync-reg.JPG?raw=true "bTogglePrefsSync-reg")
-![Alt text](Media/HKLM/bTogglePrefsSync-web.JPG?raw=true "bTogglePrefsSync-web")
+<img src=Media/HKLM/bTogglePrefsSync-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bTogglePrefsSync-reg.JPG  width="600">
+<img src=Media/HKLM/bTogglePrefsSync-web.JPG  width="600">
 
 #### bToggleSendAndTrack
 
-![Alt text](Media/HKLM/bToggleSendAndTrack-GPO-UI.JPG?raw=true "bToggleSendAndTrack-GPO-UI")
-![Alt text](Media/HKLM/bToggleSendAndTrack-reg.JPG?raw=true "bToggleSendAndTrack-reg")
-![Alt text](Media/HKLM/bToggleSendAndTrack-web.JPG?raw=true "bToggleSendAndTrack-web")
+<img src=Media/HKLM/bToggleSendAndTrack-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bToggleSendAndTrack-reg.JPG  width="600">
+<img src=Media/HKLM/bToggleSendAndTrack-web.JPG  width="600">
 
 #### bToggleWebConnectors
 
-![Alt text](Media/HKLM/bToggleWebConnectors-GPO-UI.JPG?raw=true "bToggleWebConnectors-GPO-UI")
-![Alt text](Media/HKLM/bToggleWebConnectors-reg.JPG?raw=true "bToggleWebConnectors-reg")
-![Alt text](Media/HKLM/bToggleWebConnectors-web.JPG?raw=true "bToggleWebConnectors-web")
+<img src=Media/HKLM/bToggleWebConnectors-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bToggleWebConnectors-reg.JPG  width="600">
+<img src=Media/HKLM/bToggleWebConnectors-web.JPG  width="600">
 
 #### bDisableADCFileStore
 
-![Alt text](Media/HKLM/bDisableADCFileStore-GPO-UI.JPG?raw=true "bDisableADCFileStore-GPO-UI")
-![Alt text](Media/HKLM/bDisableADCFileStore-reg.JPG?raw=true "bDisableADCFileStore-reg")
-![Alt text](Media/HKLM/bDisableADCFileStore-web.JPG?raw=true "bDisableADCFileStore-web")
+<img src=Media/HKLM/bDisableADCFileStore-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableADCFileStore-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableADCFileStore-web.JPG  width="600">
 
 #### bDisableWebmail
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/WebMail.html
 
-![Alt text](Media/HKLM/bDisableWebmail-GPO-UI.JPG?raw=true "bDisableWebmail-GPO-UI")
-![Alt text](Media/HKLM/bDisableWebmail-reg.JPG?raw=true "bDisableWebmail-reg")
-![Alt text](Media/HKLM/bDisableWebmail-web.JPG?raw=true "bDisableWebmail-web")
+<img src=Media/HKLM/bDisableWebmail-GPO-UI.JPG  width="600">
+<img src=Media/HKLM/bDisableWebmail-reg.JPG  width="600">
+<img src=Media/HKLM/bDisableWebmail-web.JPG  width="600">
 
 <a name="EmbeddedContent"/>
 
