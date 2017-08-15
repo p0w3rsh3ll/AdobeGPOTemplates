@@ -6,16 +6,16 @@ AdobeGPOTemplates PowerShell Module
 ## Table of Contents  
 * [HKLM](#HKLM)
   * [Cloud Services](#CloudServices)
-  * [Embedded Content](#Embedded Content)
+  * [Embedded Content](#EmbeddedContent)
   * [Other](#Other)
   * [Security](#Security)
-  * [Trusted Locations](#Trusted Locations)
+  * [Trusted Locations](#TrustedLocations)
   * [Updater](#Updater)    
 * [HKCU](#HKCU)
-  * [Embedded Content](#Embedded Content)
-  * [Security](#Security)
-  * [Trusted Locations](#Trusted Locations)
-  * [Updater](#Updater)
+  * [Embedded Content](#HKCUEmbeddedContent)
+  * [Security](#HKCUSecurity)
+  * [Trusted Locations](#HKCUTrustedLocations)
+  * [Updater](#HKCUUpdater)
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html
 
@@ -36,7 +36,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 <img src="https://github.com/favicon.ico" width="48">
 
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG "bAdobeSendPluginToggle-GPO-UI")
-<img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="48">
+<img src=Media/HKLM/bAdobeSendPluginToggle-GPO-UI.JPG  width="480">
 
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-reg.JPG?raw=true "bAdobeSendPluginToggle-reg")
 ![Alt text](Media/HKLM/bAdobeSendPluginToggle-web.JPG?raw=true "bAdobeSendPluginToggle-web")
@@ -97,7 +97,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/WebMail.html
 ![Alt text](Media/HKLM/bDisableWebmail-reg.JPG?raw=true "bDisableWebmail-reg")
 ![Alt text](Media/HKLM/bDisableWebmail-web.JPG?raw=true "bDisableWebmail-web")
 
-<a name="Embedded Content"/>
+<a name="EmbeddedContent"/>
 
 ### Embedded Content
 
@@ -202,7 +202,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 ![Alt text](Media/HKLM/iProtectedView-reg.JPG?raw=true "iProtectedView-reg")
 ![Alt text](Media/HKLM/iProtectedView-web.JPG?raw=true "iProtectedView-web")
 
-<a name="Trusted Locations"/>
+<a name="TrustedLocations"/>
 
 ### Trusted Locations
 
@@ -262,7 +262,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
 ## HKCU
 
-<a name="Embedded Content"/>
+<a name="HKCUEmbeddedContent"/>
 
 ### Embedded Content
 
@@ -293,7 +293,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 ![Alt text](Media/HKCU/bEnableJS-reg.JPG?raw=true "bEnableJS-reg")
 ![Alt text](Media/HKCU/bEnableJS-web.JPG?raw=true "bEnableJS-web")
 
-<a name="Security"/>
+<a name="HKCUSecurity"/>
 
 ### Security
 
@@ -328,7 +328,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 ![Alt text](Media/HKCU/iProtectedView-GPO-UI.JPG?raw=true "iProtectedView-GPO-UI")
 ![Alt text](Media/HKCU/iProtectedView-reg.JPG?raw=true "iProtectedView-reg")
 
-<a name="Trusted Locations"/>
+<a name="HKCUTrustedLocations"/>
 
 ### Trusted Locations
 
@@ -347,7 +347,7 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 ![Alt text](Media/HKCU/bTrustOSTrustedSites-reg.JPG?raw=true "bTrustOSTrustedSites-reg")
 ![Alt text](Media/HKCU/bTrustOSTrustedSites-web.JPG?raw=true "bTrustOSTrustedSites-web")
 
-<a name="Updater"/>
+<a name="HKCUUpdater"/>
 
 ### Updater
 
