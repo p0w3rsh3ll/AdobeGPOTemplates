@@ -309,16 +309,22 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Security.html
 <img src=Media/HKCU/bAskBeforeInstalling-EUTL-reg.JPG  width="600">
 <img src=Media/HKCU/bAskBeforeInstalling-EUTL-web.JPG  width="600">
 
-#### bLoadSettingsFromURL
+#### bLoadSettingsFromURL AATL
 
 <img src=Media/HKCU/bLoadSettingsFromURL-AATL-GPO-UI.JPG  width="600">
 <img src=Media/HKCU/bLoadSettingsFromURL-AATL-reg.JPG  width="600">
 <img src=Media/HKCU/bLoadSettingsFromURL-AATL-web.JPG  width="600">
 
+#### bLoadSettingsFromURL EUTL
 
-#### bLoadSettingsFromURL
-
+<img src=Media/HKCU/bLoadSettingsFromURL-EUTL-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bLoadSettingsFromURL-EUTL-reg.JPG  width="600">
 <img src=Media/HKCU/bLoadSettingsFromURL-EUTL-web.JPG  width="600">
+
+#### bLoadSettingsFromURL Custom
+
+<img src=Media/HKCU/bLoadSettingsFromURL-Cust-GPO-UI.JPG  width="600">
+<img src=Media/HKCU/bLoadSettingsFromURL-Cust-reg.JPG  width="600">
 
 #### iProtectedView
 
