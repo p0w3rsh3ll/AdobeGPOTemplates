@@ -8,7 +8,7 @@ AdobeGPOTemplates PowerShell Module
   * [Install the module](#Install)
   * [Functions](#Functions)
   * [Help](#Help)
-  * [What's Next](#What's Next)
+  * [What's Next](#WhatsNext)
 * [Issues](#issues)
 * [Todo](#Todo)
 * [Credits](#Credits)
@@ -122,7 +122,7 @@ SYNOPSIS
 
 
 ```
-<a name="What's Next"/>
+<a name="WhatsNext"/>
 
 ## What's Next
 
