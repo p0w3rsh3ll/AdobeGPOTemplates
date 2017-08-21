@@ -12,6 +12,7 @@ AdobeGPOTemplates PowerShell Module
 * [Issues](#issues)
 * [Todo](#Todo)
 * [Credits](#Credits)
+* [Other links](#Otherlinks)
 
 <a name="Usage"/>
 
@@ -153,5 +154,10 @@ gpedit.msc
 ## Credits
 Thanks go to:
 * **[@iadgov](https://github.com/iadgov/)**: 
+
+<a name="OtherLinks"/>
+
+## Other links
+* [https://p0w3rsh3ll.wordpress.com/2017/08/21/create-adobe-gpo-templates/](https://p0w3rsh3ll.wordpress.com/2017/08/21/create-adobe-gpo-templates/): 
    
 
