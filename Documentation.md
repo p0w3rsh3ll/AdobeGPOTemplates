@@ -121,6 +121,13 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bSendMailShareRedirection
+
+<img src=Media/HKLM/bSendMailShareRedirection-UI.JPG  width="600">
+<img src=Media/HKLM/bSendMailShareRedirection-reg.JPG  width="600">
+
+https://helpx.adobe.com/acrobat/kb/send-email-attachment.html
+
 #### bAcroSuppressUpsell
 
 http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/FeatureLockdown.html

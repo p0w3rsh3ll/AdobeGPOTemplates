@@ -166,7 +166,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         explainText="`$(string.SendMailShareRedirection_Help)" 
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
         valueName="bSendMailShareRedirection">
-        <parentCategory ref="SecurityCategory"/>
+        <parentCategory ref="OtherCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />        
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
@@ -828,11 +828,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
       <string id="SendMailShareRedirection">Mail icon behavior</string>
       <string id="SendMailShareRedirection_Help">
-      Send documents as attachment frequently for your work,
-      you can change the behavior of the Email icon to one-click Attach to email experience
-If disabled, this policy will restore the Attach to email experience and will not redirect to the new unified sharing experience
+You can change the behavior of the email icon to send a PDF directly as email attachment.
 
-If enabled, this policy will redirect to the new unified share pane and unified sharing experience
+If disabled, this policy will restore the Attach to email experience and will not redirect to the new unified sharing experience.
+
+If enabled, this policy will redirect to the new unified share pane and unified sharing experience.
       </string>
       <string id="AdobeWelcomeScreen">Welcomescreen</string>
       <string id="AdobeWelcomeScreen_Help">
