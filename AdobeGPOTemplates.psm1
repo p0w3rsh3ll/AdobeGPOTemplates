@@ -46,7 +46,7 @@ Param(
     [string[]]$Product='Reader',
 
     [Parameter()]
-    [ValidateSet('2017','2015','DC')]
+    [ValidateSet('2017','2015','DC','11.0','10.0','9.0')]
     [string[]]$Version='DC'
 )
 Begin {
