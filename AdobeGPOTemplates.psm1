@@ -33,7 +33,7 @@ Function New-AdobeGPOTemplate {
     .EXAMPLE
         New-AdobeGPOTemplate -Product Reader -Version DC -Confirm:$false
 
-        It creates without asking for confirmation the following files: 
+        It creates without asking for confirmation the following files:
         Adobe.admx, Adobe.adml,
         AdobeReaderDC.admx, AdobeReaderDC.adml
 
@@ -53,10 +53,10 @@ Begin {
     try {
         @'
 <?xml version="1.0" encoding="utf-8"?>
-<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
 <policyNamespaces>
-    <target prefix="adobe"     namespace="Microsoft.Policies.adobe" /> 
+    <target prefix="adobe"     namespace="Microsoft.Policies.adobe" />
     <using prefix="products" namespace="Microsoft.Policies.Products" />
 </policyNamespaces>
 <resources minRequiredRevision="1.0" />
@@ -74,18 +74,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 <categories>
 	    <category name="Adobe" displayName="$(string.Cat_Adobe)"></category>
 		    <category name="Reader" displayName="$(string.Cat_Reader)"><parentCategory ref="adobe:Adobe" /></category>
-		    <category name="Acrobat" displayName="$(string.Cat_Acrobat)"><parentCategory ref="adobe:Adobe" /></category>            
+		    <category name="Acrobat" displayName="$(string.Cat_Acrobat)"><parentCategory ref="adobe:Adobe" /></category>
 </categories>
-</policyDefinitions>    
+</policyDefinitions>
 '@      | Out-File -FilePath Adobe.admx -Encoding UTF8 -ErrorAction Stop
     } catch {
         Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
-    }    
+    }
     try {
         @'
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <displayName>entrer le nom complet ici</displayName>
   <description>entrer la description ici</description>
@@ -97,11 +97,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <string id="SUPPORTED_Windows7">At least Windows 7 or Windows Server 2008 R2</string>
     </stringTable>
   </resources>
-</policyDefinitionResources>      
+</policyDefinitionResources>
 '@      | Out-File -FilePath Adobe.adml -Encoding UTF8 -ErrorAction Stop
     } catch {
         Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
-    }  
+    }
 }
 Process {
 $Product | ForEach-Object {
@@ -119,90 +119,97 @@ $Product | ForEach-Object {
         }
 
         $Version | ForEach-Object {
+            $catID = $null
             $v = $_
+            Switch ($v) {
+                '11.0' { $catID = '11x' ; break }
+                '10.0' { $catID = '10x' ; break }
+                '9.0'  { $catID = '9x'  ; break }
+                default { $catID = $v }
 
-            if ($pscmdlet.ShouldProcess(('Adobe{0}{1}.adm?' -f $p,$v),'Create files')) { 
+            }
+            if ($pscmdlet.ShouldProcess(('Adobe{0}{1}.admx?' -f $p,$v),'Create files')) {
                 #region master template
-                $ADMXfile = 'Adobe{0}{1}.admx' -f $p,$v
-                try {            
+                $ADMXfile = 'Adobe{0}{1}.admx' -f $p,$v,$catID
+                try {
                     @"
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
-<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <policyNamespaces>
-    <target prefix="$($p)" namespace="Microsoft.Policies.Adobe.$($p).$($v)" />
-    <using prefix="adobe"    namespace="Microsoft.Policies.adobe" />          
+    <target prefix="$($p)" namespace="Microsoft.Policies.Adobe.$($p).$($catID)" />
+    <using prefix="adobe"    namespace="Microsoft.Policies.adobe" />
   </policyNamespaces>
   <resources minRequiredRevision="1.0" />
   <categories>
-    <category name="$($p)$($v)" displayName="`$(string.Cat_$($p)$($v))">
+    <category name="$($p)$($catID)" displayName="`$(string.Cat_$($p)$($catID))">
     <parentCategory ref="adobe:$($p)" /></category>
 
     <category displayName="`$(string.SecurityCategory)" name="SecurityCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
     <category displayName="`$(string.EmbeddedContentCategory)" name="EmbeddedContentCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
     <category displayName="`$(string.CloudCategory)" name="CloudCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
     <category displayName="`$(string.TrustedLocationCategory)" name="TrustedLocationCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
     <category displayName="`$(string.UpdaterCategory)" name="UpdaterCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
     <category displayName="`$(string.OtherCategory)" name="OtherCategory">
-      <parentCategory ref="$($p)$($v)"/>
+      <parentCategory ref="$($p)$($catID)"/>
     </category>
   </categories>
   <policies>
-  
+
     <policy name="SendMailShareRedirection"
-        class="Machine" 
-        displayName="`$(string.SendMailShareRedirection)" 
-        explainText="`$(string.SendMailShareRedirection_Help)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        class="Machine"
+        displayName="`$(string.SendMailShareRedirection)"
+        explainText="`$(string.SendMailShareRedirection_Help)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bSendMailShareRedirection">
         <parentCategory ref="OtherCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
-    
+
     <!-- Trust Manager > Enhanced Security -->
     <policy name="EnhancedSecurityStandalone"
-        class="Machine" 
-        displayName="`$(string.EnhancedSecurityStandalone)" 
-        explainText="`$(string.EnhancedSecurityStandalone_Help)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        class="Machine"
+        displayName="`$(string.EnhancedSecurityStandalone)"
+        explainText="`$(string.EnhancedSecurityStandalone_Help)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bEnhancedSecurityStandalone">
         <parentCategory ref="SecurityCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
     <policy name="EnhancedSecurityBrowser"
-        class="Machine" 
+        class="Machine"
         displayName="`$(string.EnhancedSecurityBrowser)"
         explainText="`$(string.EnhancedSecurityBrowser_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bEnhancedSecurityInBrowser">
         <parentCategory ref="SecurityCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
-    
-    <policy name="ProtectedModeatstartup" 
-        class="Machine" 
-        displayName="`$(string.ProtectedModeatstartup)" 
-        explainText="`$(string.ProtectedModeatstartup_Help)" 
-        presentation="`$(presentation.ProtectedModeatstartup)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+
+    <policy name="ProtectedModeatstartup"
+        class="Machine"
+        displayName="`$(string.ProtectedModeatstartup)"
+        explainText="`$(string.ProtectedModeatstartup_Help)"
+        presentation="`$(presentation.ProtectedModeatstartup)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bProtectedMode">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -211,15 +218,15 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <!-- Trust Manager > Protected View -->
-    <policy name="ProtectedView" 
+    <policy name="ProtectedView"
         class="Machine"
         displayName="`$(string.ProtectedView)"
         explainText="`$(string.ProtectedView_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="iProtectedView"
         presentation="`$(presentation.ProtectedView_Dropdown)">
         <parentCategory ref="SecurityCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />           
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <elements>
             <enum id="ProtectedViewLevel" valueName="iProtectedView" required="true">
                 <item displayName="`$(string.DisableProtectedView)">
@@ -233,17 +240,17 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
                 </item>
             </enum>
       </elements>
-    </policy> 
+    </policy>
 
     <!-- Trust Manager > Internet Access -->
     <policy name="Hyperlinks"
         class="Machine"
         displayName="`$(string.Hyperlinks)"
-        explainText="`$(string.Hyperlinks_Help)" 
-        key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms" 
+        explainText="`$(string.Hyperlinks_Help)"
+        key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
         valueName="iURLPerms">
         <parentCategory ref="TrustedLocationCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="2" /></disabledValue>
     </policy>
@@ -252,11 +259,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         class="Machine"
         displayName="`$(string.HyperlinksUserList)"
         explainText="`$(string.HyperlinksUserList_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms" 
-        valueName="iUnknownURLPerms" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
+        valueName="iUnknownURLPerms"
         presentation="`$(presentation.HyperlinksUserList_Dropdown)">
         <parentCategory ref="EmbeddedContentCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />      
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <elements>
             <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
                 <item displayName="`$(string.AlwaysAsk)">
@@ -276,10 +283,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     <!-- bEnableFlash -->
 
     <!-- General -->
-    <policy name="DisablePDFHandlerSwitching" 
-        class="Machine" 
-        displayName="`$(string.DisablePDFHandlerSwitching)" 
-        explainText="`$(string.DisablePDFHandlerSwitching_Help)" 
+    <policy name="DisablePDFHandlerSwitching"
+        class="Machine"
+        displayName="`$(string.DisablePDFHandlerSwitching)"
+        explainText="`$(string.DisablePDFHandlerSwitching_Help)"
         presentation="`$(presentation.DisablePDFHandlerSwitching)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bDisablePDFHandlerSwitching">
@@ -290,9 +297,9 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <policy name="AdobeSendPluginToggle"
-        class="Machine" 
-        displayName="`$(string.AdobeSendPluginToggle)" 
-        explainText="`$(string.AdobeSendPluginToggle_Help)" 
+        class="Machine"
+        displayName="`$(string.AdobeSendPluginToggle)"
+        explainText="`$(string.AdobeSendPluginToggle_Help)"
         presentation="`$(presentation.AdobeSendPluginToggle)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cCloud"
         valueName="bAdobeSendPluginToggle">
@@ -302,10 +309,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="ToggleAdobeDocumentServices" 
-        class="Machine" 
-        displayName="`$(string.ToggleAdobeDocumentServices)" 
-        explainText="`$(string.ToggleAdobeDocumentServices_Help)" 
+    <policy name="ToggleAdobeDocumentServices"
+        class="Machine"
+        displayName="`$(string.ToggleAdobeDocumentServices)"
+        explainText="`$(string.ToggleAdobeDocumentServices_Help)"
         presentation="`$(presentation.ToggleAdobeDocumentServices)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bToggleAdobeDocumentServices">
@@ -315,10 +322,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="TogglePrefsSync" 
-        class="Machine" 
-        displayName="`$(string.TogglePrefsSync)" 
-        explainText="`$(string.TogglePrefsSync_Help)" 
+    <policy name="TogglePrefsSync"
+        class="Machine"
+        displayName="`$(string.TogglePrefsSync)"
+        explainText="`$(string.TogglePrefsSync_Help)"
         presentation="`$(presentation.TogglePrefsSync)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bTogglePrefsSync">
@@ -336,24 +343,24 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     <!-- Trusted Location Settings -->
     <policy name="TrustedSites"
         class="Machine"
-        displayName="`$(string.TrustedSites)" 
+        displayName="`$(string.TrustedSites)"
         explainText="`$(string.TrustedSites_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bDisableTrustedSites">
         <parentCategory ref="TrustedLocationCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
     <policy name="TrustedFolders"
         class="Machine"
-        displayName="`$(string.TrustedFolders)" 
+        displayName="`$(string.TrustedFolders)"
         explainText="`$(string.TrustedFolders_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bDisableTrustedFolders">
         <parentCategory ref="TrustedLocationCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
@@ -362,31 +369,31 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         class="Machine"
         displayName="`$(string.TrustedOSSites)"
         explainText="`$(string.TrustedOSSites_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bDisableOSTrustedSites">
         <parentCategory ref="TrustedLocationCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
-    </policy>    
+    </policy>
 
     <policy name="TrustedCertificate"
         class="Machine"
         displayName="`$(string.TrustedCertificate)"
         explainText="`$(string.TrustedCertificate_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bEnableCertificateBasedTrust">
         <parentCategory ref="TrustedLocationCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
     <!-- Cloud Settings -->
-    <policy name="DisableSharePointFeatures" 
-        class="Machine" 
-        displayName="`$(string.DisableSharePointFeatures)" 
-        explainText="`$(string.DisableSharePointFeatures_Help)" 
+    <policy name="DisableSharePointFeatures"
+        class="Machine"
+        displayName="`$(string.DisableSharePointFeatures)"
+        explainText="`$(string.DisableSharePointFeatures_Help)"
         presentation="`$(presentation.DisableSharePointFeatures)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cSharePoint"
         valueName="bDisableSharePointFeatures">
@@ -398,9 +405,9 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <policy  name="CloudFilestore"
         class="Machine"
-        displayName="`$(string.CloudFilestore)" 
-        explainText="`$(string.CloudFilestore_Help)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cCloud" 
+        displayName="`$(string.CloudFilestore)"
+        explainText="`$(string.CloudFilestore_Help)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cCloud"
         valueName="bDisableADCFileStore">
         <parentCategory ref="CloudCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -412,7 +419,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         class="Machine"
         displayName="`$(string.CloudWebmail)"
         explainText="`$(string.CloudWebmail_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cWebmailProfiles" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cWebmailProfiles"
         valueName="bDisableWebmail">
         <parentCategory ref="CloudCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -420,10 +427,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="ToggleAdobeSign" 
-        class="Machine" 
-        displayName="`$(string.ToggleAdobeSign)" 
-        explainText="`$(string.ToggleAdobeSign_Help)" 
+    <policy name="ToggleAdobeSign"
+        class="Machine"
+        displayName="`$(string.ToggleAdobeSign)"
+        explainText="`$(string.ToggleAdobeSign_Help)"
         presentation="`$(presentation.ToggleAdobeSign)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bToggleAdobeSign">
@@ -433,10 +440,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="ToggleWebConnectors" 
-        class="Machine" 
-        displayName="`$(string.ToggleWebConnectors)" 
-        explainText="`$(string.ToggleWebConnectors_Help)" 
+    <policy name="ToggleWebConnectors"
+        class="Machine"
+        displayName="`$(string.ToggleWebConnectors)"
+        explainText="`$(string.ToggleWebConnectors_Help)"
         presentation="`$(presentation.ToggleWebConnectors)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bToggleWebConnectors">
@@ -448,12 +455,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- Updater Settings -->
 
-    <policy name="DisableAllUpdates" 
-        class="Machine" 
-        displayName="`$(string.DisableAllUpdates)" 
-        explainText="`$(string.DisableAllUpdates_Help)" 
-        presentation="`$(presentation.DisableAllUpdates)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+    <policy name="DisableAllUpdates"
+        class="Machine"
+        displayName="`$(string.DisableAllUpdates)"
+        explainText="`$(string.DisableAllUpdates_Help)"
+        presentation="`$(presentation.DisableAllUpdates)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bUpdater">
         <parentCategory ref="UpdaterCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -461,10 +468,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="DisableAllWebServices" 
-        class="Machine" 
-        displayName="`$(string.DisableAllWebServices)" 
-        explainText="`$(string.DisableAllWebServices_Help)" 
+    <policy name="DisableAllWebServices"
+        class="Machine"
+        displayName="`$(string.DisableAllWebServices)"
+        explainText="`$(string.DisableAllWebServices_Help)"
         presentation="`$(presentation.DisableAllWebServices)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bUpdater">
@@ -475,13 +482,13 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <!-- iLogLevel needs to be moved to a GP Preference -->
-    
-    <policy name="DisableEULA" 
-        class="User" 
-        displayName="`$(string.DisableEULA)" 
-        explainText="`$(string.DisableEULA_Help)" 
-        presentation="`$(presentation.DisableEULA)" 
-        key="Software\Adobe\$($f)\$($v)\AdobeViewer" 
+
+    <policy name="DisableEULA"
+        class="User"
+        displayName="`$(string.DisableEULA)"
+        explainText="`$(string.DisableEULA_Help)"
+        presentation="`$(presentation.DisableEULA)"
+        key="Software\Adobe\$($f)\$($v)\AdobeViewer"
         valueName="EULA">
         <parentCategory ref="UpdaterCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -491,18 +498,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- iDisableCheckEula needs to be moved to a GP Preference -->
 
-    <!-- needs to be moved to a GP Preference 
+    <!-- needs to be moved to a GP Preference
         Mode key="Software\Wow6432Node\Adobe\Adobe ARM\Legacy\Reader\{AC76BA86-7AD7-1033-7B44-AC0F074E4100}"
     -->
-    
+
     <!-- iCheckReader needs to be moved to a GP Preference -->
 
-    <!-- Embedded Content Settings --> 
+    <!-- Embedded Content Settings -->
 
-    <policy name="DisableJavaScript" 
-        class="Machine" 
-        displayName="`$(string.DisableJavaScript)" 
-        explainText="`$(string.DisableJavaScript_Help)" 
+    <policy name="DisableJavaScript"
+        class="Machine"
+        displayName="`$(string.DisableJavaScript)"
+        explainText="`$(string.DisableJavaScript_Help)"
         presentation="`$(presentation.DisableJavaScript)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bDisableJavaScript">
@@ -515,23 +522,23 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     <!--  FeatureLockDown\cJavaScriptPerms tBlackList -->
 
     <policy name="Enable3d"
-        class="Machine" 
+        class="Machine"
         displayName="`$(string.Enable3d)"
         explainText="`$(string.Enable3d_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bEnable3D">
         <parentCategory ref="EmbeddedContentCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <!-- Other Content Settings -->    
+    <!-- Other Content Settings -->
 
-    <policy name="AdobeWelcomeScreen" 
-	    class="Machine" 
-	    displayName="`$(string.AdobeWelcomeScreen)" 
-	    explainText="`$(string.AdobeWelcomeScreen_Help)" 
+    <policy name="AdobeWelcomeScreen"
+	    class="Machine"
+	    displayName="`$(string.AdobeWelcomeScreen)"
+	    explainText="`$(string.AdobeWelcomeScreen_Help)"
 	    presentation="`$(presentation.AdobeWelcomeScreen)"
 	    key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cWelcomeScreen"
 	    valueName="bShowWelcomeScreen">
@@ -541,12 +548,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="DisableUsageTracking" 
-        class="Machine" 
-        displayName="`$(string.DisableUsageTracking)" 
-        explainText="`$(string.DisableUsageTracking_Help)" 
-        presentation="`$(presentation.DisableUsageTracking)" 
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+    <policy name="DisableUsageTracking"
+        class="Machine"
+        displayName="`$(string.DisableUsageTracking)"
+        explainText="`$(string.DisableUsageTracking_Help)"
+        presentation="`$(presentation.DisableUsageTracking)"
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bUsageMeasurement">
         <parentCategory ref="OtherCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -555,12 +562,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <policy name="Upsell"
-        class="Machine" 
-        displayName="`$(string.Upsell)" 
+        class="Machine"
+        displayName="`$(string.Upsell)"
         explainText="`$(string.Upsell_Help)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="bAcroSuppressUpsell">
-        <parentCategory ref="OtherCategory"/>    
+        <parentCategory ref="OtherCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
@@ -568,10 +575,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- bAutoFill -->
 
-    <policy name="ShowMsgAtLaunch" 
-        class="Machine" 
-        displayName="`$(string.ShowMsgAtLaunch)" 
-        explainText="`$(string.ShowMsgAtLaunch_Help)" 
+    <policy name="ShowMsgAtLaunch"
+        class="Machine"
+        displayName="`$(string.ShowMsgAtLaunch)"
+        explainText="`$(string.ShowMsgAtLaunch_Help)"
         presentation="`$(presentation.ShowMsgAtLaunch)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cIPM"
         valueName="bShowMsgAtLaunch">
@@ -581,10 +588,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="DontShowMsgWhenViewingDoc" 
-        class="Machine" 
-        displayName="`$(string.DontShowMsgWhenViewingDoc)" 
-        explainText="`$(string.DontShowMsgWhenViewingDoc_Help)" 
+    <policy name="DontShowMsgWhenViewingDoc"
+        class="Machine"
+        displayName="`$(string.DontShowMsgWhenViewingDoc)"
+        explainText="`$(string.DontShowMsgWhenViewingDoc_Help)"
         presentation="`$(presentation.DontShowMsgWhenViewingDoc)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cIPM"
         valueName="bDontShowMsgWhenViewingDoc">
@@ -592,7 +599,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
-    </policy>    
+    </policy>
 
     <policy name="FipsMode"
         class="User"
@@ -604,13 +611,13 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
-    </policy>    
+    </policy>
 
     <!-- More Cloud Settings -->
-    <policy name="ToggleFillSign" 
-        class="Machine" 
-        displayName="`$(string.ToggleFillSign)" 
-        explainText="`$(string.ToggleFillSign_Help)" 
+    <policy name="ToggleFillSign"
+        class="Machine"
+        displayName="`$(string.ToggleFillSign)"
+        explainText="`$(string.ToggleFillSign_Help)"
         presentation="`$(presentation.ToggleFillSign)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bToggleFillSign">
@@ -620,10 +627,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="ToggleSendAndTrack" 
-        class="Machine" 
-        displayName="`$(string.ToggleSendAndTrack)" 
-        explainText="`$(string.ToggleSendAndTrack_Help)" 
+    <policy name="ToggleSendAndTrack"
+        class="Machine"
+        displayName="`$(string.ToggleSendAndTrack)"
+        explainText="`$(string.ToggleSendAndTrack_Help)"
         presentation="`$(presentation.ToggleSendAndTrack)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cServices"
         valueName="bToggleSendAndTrack">
@@ -631,41 +638,41 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
-    </policy>    
+    </policy>
 
-    <!-- More Embedded Content Settings --> 
+    <!-- More Embedded Content Settings -->
     <policy name="Enable3dContent"
-        class="User" 
+        class="User"
         displayName="`$(string.3DEnableContent)"
         explainText="`$(string.3DEnableContent_Help)"
-        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown" 
+        key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
         valueName="b3DEnableContent">
         <parentCategory ref="EmbeddedContentCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
     <policy name="AutoUriDetect"
-        class="User" 
+        class="User"
         displayName="`$(string.AutoUriDetect)"
         explainText="`$(string.AutoUriDetect_Help)"
-        key="Software\Adobe\$($f)\$($v)\AVGeneral" 
+        key="Software\Adobe\$($f)\$($v)\AVGeneral"
         valueName="bAutoUriDetect">
         <parentCategory ref="EmbeddedContentCategory"/>
-        <supportedOn ref="adobe:SUPPORTED_Windows7" />        
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
     <!-- User: Collab\bEnableRSSFeeds not documented -->
 
-    <policy name="JavaScript" 
-	    class="User" 
-	    displayName="`$(string.JavaScript)" 
-	    explainText="`$(string.JavaScript_Help)" 
-	    presentation="`$(presentation.JavaScript)" 
-        key="Software\Adobe\$($f)\$($v)\JSPrefs" 
+    <policy name="JavaScript"
+	    class="User"
+	    displayName="`$(string.JavaScript)"
+	    explainText="`$(string.JavaScript_Help)"
+	    presentation="`$(presentation.JavaScript)"
+        key="Software\Adobe\$($f)\$($v)\JSPrefs"
 	    valueName="bEnableJS">
         <parentCategory ref="EmbeddedContentCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -673,11 +680,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="Launchfunctionality" 
-	    class="User" 
-        displayName="`$(string.Launchfunctionality)" 
-	    explainText="`$(string.Launchfunctionality_Help)" 
-	    presentation="`$(presentation.Launchfunctionality)" 
+    <policy name="Launchfunctionality"
+	    class="User"
+        displayName="`$(string.Launchfunctionality)"
+	    explainText="`$(string.Launchfunctionality_Help)"
+	    presentation="`$(presentation.Launchfunctionality)"
 	    key="Software\Adobe\$($f)\$($v)\Originals"
 	    valueName="bAllowOpenFile">
         <parentCategory ref="EmbeddedContentCategory" />
@@ -686,12 +693,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="GreyouttheLaunchfunctionality" 
-        class="User" 
-        displayName="`$(string.GreyouttheLaunchfunctionality)" 
-        explainText="`$(string.GreyouttheLaunchfunctionality_Help)" 
-        presentation="`$(presentation.GreyouttheLaunchfunctionality)" 
-        key="Software\Adobe\$($f)\$($v)\Originals" 
+    <policy name="GreyouttheLaunchfunctionality"
+        class="User"
+        displayName="`$(string.GreyouttheLaunchfunctionality)"
+        explainText="`$(string.GreyouttheLaunchfunctionality_Help)"
+        presentation="`$(presentation.GreyouttheLaunchfunctionality)"
+        key="Software\Adobe\$($f)\$($v)\Originals"
         valueName="bSecureOpenFile">
         <parentCategory ref="EmbeddedContentCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -701,12 +708,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- More Trust Manager settings -->
 
-    <policy name="LoadSettingsFromURLCust" 
-        class="User" 
-        displayName="`$(string.LoadSettingsFromURLCust)" 
-        explainText="`$(string.LoadSettingsFromURLCust_Help)" 
-        presentation="`$(presentation.LoadSettingsFromURLCust)" 
-        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cCustomDownload" 
+    <policy name="LoadSettingsFromURLCust"
+        class="User"
+        displayName="`$(string.LoadSettingsFromURLCust)"
+        explainText="`$(string.LoadSettingsFromURLCust_Help)"
+        presentation="`$(presentation.LoadSettingsFromURLCust)"
+        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cCustomDownload"
         valueName="bLoadSettingsFromURL">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -714,12 +721,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="LoadSettingsFromURLAATL" 
-        class="User" 
-        displayName="`$(string.LoadSettingsFromURLAATL)" 
-        explainText="`$(string.LoadSettingsFromURLAATL_Help)" 
-        presentation="`$(presentation.LoadSettingsFromURLAATL)" 
-        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cAdobeDownload" 
+    <policy name="LoadSettingsFromURLAATL"
+        class="User"
+        displayName="`$(string.LoadSettingsFromURLAATL)"
+        explainText="`$(string.LoadSettingsFromURLAATL_Help)"
+        presentation="`$(presentation.LoadSettingsFromURLAATL)"
+        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cAdobeDownload"
         valueName="bLoadSettingsFromURL">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -727,25 +734,25 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="LoadSettingsFromURLEUTL" 
-        class="User" 
-        displayName="`$(string.LoadSettingsFromURLEUTL)" 
-        explainText="`$(string.LoadSettingsFromURLEUTL_Help)" 
-        presentation="`$(presentation.LoadSettingsFromURLEUTL)" 
+    <policy name="LoadSettingsFromURLEUTL"
+        class="User"
+        displayName="`$(string.LoadSettingsFromURLEUTL)"
+        explainText="`$(string.LoadSettingsFromURLEUTL_Help)"
+        presentation="`$(presentation.LoadSettingsFromURLEUTL)"
         key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cEUTLDownload"
         valueName="bLoadSettingsFromURL">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <enabledValue><decimal value="1" /></enabledValue>
         <disabledValue><decimal value="0" /></disabledValue>
-    </policy>    
+    </policy>
 
-    <policy name="AskBeforeUpdatingRootCertificates" 
-        class="User" 
-        displayName="`$(string.AskBeforeUpdatingRootCertificates)" 
-        explainText="`$(string.AskBeforeUpdatingRootCertificates_Help)" 
-        presentation="`$(presentation.AskBeforeUpdatingRootCertificates)" 
-        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cAdobeDownload" 
+    <policy name="AskBeforeUpdatingRootCertificates"
+        class="User"
+        displayName="`$(string.AskBeforeUpdatingRootCertificates)"
+        explainText="`$(string.AskBeforeUpdatingRootCertificates_Help)"
+        presentation="`$(presentation.AskBeforeUpdatingRootCertificates)"
+        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cAdobeDownload"
         valueName="bAskBeforeInstalling">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -753,12 +760,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
-    <policy name="AskBeforeUpdatingEUCertificates" 
-        class="User" 
-        displayName="`$(string.AskBeforeUpdatingEUCertificates)" 
-        explainText="`$(string.AskBeforeUpdatingEUCertificates_Help)" 
-        presentation="`$(presentation.AskBeforeUpdatingEUCertificates)" 
-        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cEUTLDownload" 
+    <policy name="AskBeforeUpdatingEUCertificates"
+        class="User"
+        displayName="`$(string.AskBeforeUpdatingEUCertificates)"
+        explainText="`$(string.AskBeforeUpdatingEUCertificates_Help)"
+        presentation="`$(presentation.AskBeforeUpdatingEUCertificates)"
+        key="Software\Adobe\$($f)\$($v)\Security\cDigSig\cEUTLDownload"
         valueName="bAskBeforeInstalling">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -767,12 +774,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <!-- More Trust Manager > Protected View -->
-    <policy name="ProtectedViewMode" 
-        class="User" 
-        displayName="`$(string.ProtectedViewMode)" 
-        explainText="`$(string.ProtectedViewMode_Help)" 
-        presentation="`$(presentation.ProtectedViewMode)" 
-        key="Software\Adobe\$($f)\$($v)\TrustManager" 
+    <policy name="ProtectedViewMode"
+        class="User"
+        displayName="`$(string.ProtectedViewMode)"
+        explainText="`$(string.ProtectedViewMode_Help)"
+        presentation="`$(presentation.ProtectedViewMode)"
+        key="Software\Adobe\$($f)\$($v)\TrustManager"
         valueName="iProtectedView">
         <parentCategory ref="SecurityCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -781,12 +788,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </policy>
 
     <!-- More Trusted Location Settings -->
-    <policy name="TrustOSTrustedSites" 
-        class="User" 
-        displayName="`$(string.TrustOSTrustedSites)" 
-        explainText="`$(string.TrustOSTrustedSites_Help)" 
-        presentation="`$(presentation.TrustOSTrustedSites)" 
-        key="Software\Adobe\$($f)\$($v)\TrustManager" 
+    <policy name="TrustOSTrustedSites"
+        class="User"
+        displayName="`$(string.TrustOSTrustedSites)"
+        explainText="`$(string.TrustOSTrustedSites_Help)"
+        presentation="`$(presentation.TrustOSTrustedSites)"
+        key="Software\Adobe\$($f)\$($v)\TrustManager"
         valueName="bTrustOSTrustedSites">
         <parentCategory ref="TrustedLocationCategory" />
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
@@ -803,21 +810,21 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
                 #endregion
 
                 #region ADML file
-                $ADMLfile = 'Adobe{0}{1}.adml' -f $p,$v
+                $ADMLfile = 'Adobe{0}{1}.adml' -f $p,$v,$catID
                 try {
                     @"
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <displayName>entrer le nom complet ici</displayName>
   <description>entrer la description ici</description>
   <resources>
     <stringTable>
 
-      <string id="Cat_Adobe">Adobe</string>    
+      <string id="Cat_Adobe">Adobe</string>
       <string id="Cat_$($p)">$($f)</string>
-      <string id="Cat_$($p)$($v)">$($v)</string>
+      <string id="Cat_$($p)$($catID)">$($v)</string>
 
       <string id="SecurityCategory">Security</string>
       <string id="CloudCategory">Cloud Services</string>
@@ -840,7 +847,7 @@ If disabled, this policy will disable the welcome screen of the $($p)
 
 If enabled, this policy will activate the welcome screen of the $($p)
       </string>
-      
+
       <string id="JavaScript">JavaScript</string>
       <string id="JavaScript_Help">
   Set to 'Enabled' to enable Javascript at the user level.
@@ -849,7 +856,7 @@ If enabled, this policy will activate the welcome screen of the $($p)
 
   If not set at machine level, the user can still control Javascript in Preferences > Javascript.
       </string>
-      
+
       <string id="GreyouttheLaunchfunctionality">Grey out the Launch functionality</string>
       <string id="GreyouttheLaunchfunctionality_Help">
 Set to 'Enabled' to the grey out of the launch functionality in Adobe $($p)
@@ -973,19 +980,19 @@ Prevents web service plugins from updating and also disables all services.
 
 Set it to 'Disabled' to turn them off or to 'Enabled' to turn them on
       </string>
-    
+
       <string id="ToggleWebConnectors">Disable third party connectors</string>
       <string id="ToggleWebConnectors_Help">
 Set to 'Enabled' to disable third party connectors such as Dropbox, Google Drive, etc.
 
 This new feature allows configuring in-product access to third party services for file storage
       </string>
-    
+
       <string id="ToggleFillSign">Disable Fill and Sign</string>
       <string id="ToggleFillSign_Help">
 Set to 'Enabled' to disable and lock the Fill and Sign feature
-      </string>    
-    
+      </string>
+
       <string id="ToggleAdobeDocumentServices">Disable all services with exceptions</string>
       <string id="ToggleAdobeDocumentServices_Help">
 Set to 'Enabled' to disable all service access except those features controlled by the other preferences:
@@ -1028,7 +1035,7 @@ Set to 'Enabled' to disable the Adobe Send and Track plugin for Outlook
 
         <string id="CloudFilestore">Disable Cloud File Storage</string>
         <string id="CloudFilestore_Help">
-Set to 'Enabled' to disable the  Cloud File Storage     
+Set to 'Enabled' to disable the  Cloud File Storage
         </string>
 
       <string id="CloudWebmail">Disable WebMail integration</string>
@@ -1038,7 +1045,7 @@ Set to 'Enabled' to disable integration with WebMail services (ie Yahoo, Google,
 
       <string id="Enable3d">Disable 3D Content</string>
       <string id="Enable3d_Help">
-Set to 'Enabled' to trust and render 3D files. 
+Set to 'Enabled' to trust and render 3D files.
 Set to 'Disabled' to don't render 3D content.
 
 See Preferences > 3D &amp; Multimedia > 'Enable playing of 3D content'
@@ -1076,9 +1083,9 @@ See Preferences > Trust Manager > Internet Access
 
       <string id="TrustedSites">User Trusted Sites</string>
       <string id="TrustedSites_Help">
-Enable/Disable a user's ability to mark sites as Trusted. 
+Enable/Disable a user's ability to mark sites as Trusted.
 
-Trusted sites are not subjected to Protected View/Mode and other security features. 
+Trusted sites are not subjected to Protected View/Mode and other security features.
 
 Setting to Disabled will prevent user's from trusting PDF files before they are have been opened with Protected View.
         </string>
@@ -1086,15 +1093,15 @@ Setting to Disabled will prevent user's from trusting PDF files before they are 
       <string id="TrustedFolders">User Trusted Folders and Files</string>
       <string id="TrustedFolders_Help">
 
-Enable/Disable a user's ability to mark particular files as Trusted. 
+Enable/Disable a user's ability to mark particular files as Trusted.
 
-This setting is related to the Yellow Message Bar for Protected View/Mode. 
+This setting is related to the Yellow Message Bar for Protected View/Mode.
 
 By setting to Enabled or Not Configured a user can approve a single PDF file as trusted and get active content (like JavaScript) to execute.
 
-By setting to disabled a user will never be able to move beyond the Yellow Message Bar, essentially they will be in read-only mode and will not be able to enable any active content. 
+By setting to disabled a user will never be able to move beyond the Yellow Message Bar, essentially they will be in read-only mode and will not be able to enable any active content.
 
-Setting to disabled will have ramifications on user workflows. 
+Setting to disabled will have ramifications on user workflows.
 
 Not Configured and Disabled have the same behavior.
         </string>
@@ -1102,9 +1109,9 @@ Not Configured and Disabled have the same behavior.
       <string id="TrustedCertificate">Trust Certified Documents</string>
       <string id="TrustedCertificate_Help">
 
-Enable/Disable Certified Documents as Trusted. 
+Enable/Disable Certified Documents as Trusted.
 
-Setting to Enabled will allow signed PDF files to open normally without any security restrictions. 
+Setting to Enabled will allow signed PDF files to open normally without any security restrictions.
 
 Not Configured or Disabled have the same behavior.
     </string>
@@ -1118,10 +1125,10 @@ Not Configured and Disabled have the same behavior.
 
     <string id="HyperlinksUserList">User non-whitelisted hyperlinks access to the Internet</string>
     <string id="HyperlinksUserList_Help">
-Controls if hyperlinks, that are not in a user's list, clicked inside PDF documents are allowed to access the Internet. 
-Only applicable if 'Hyperlink access to the Internet' is Not Configured. 
-If 'Hyperlink access to the Internet' is Not Configured, then the default behavior is 'Always ask'. 
-Not Configured and Enabled with 'Always ask' have the same behavior of always asking for permission. 
+Controls if hyperlinks, that are not in a user's list, clicked inside PDF documents are allowed to access the Internet.
+Only applicable if 'Hyperlink access to the Internet' is Not Configured.
+If 'Hyperlink access to the Internet' is Not Configured, then the default behavior is 'Always ask'.
+Not Configured and Enabled with 'Always ask' have the same behavior of always asking for permission.
 Users can change the value when it is set to Not Configured.
     </string>
 
@@ -1131,31 +1138,31 @@ Users can change the value when it is set to Not Configured.
 
     <string id="EnhancedSecurityStandalone">Enhanced Security: standalone mode</string>
     <string id="EnhancedSecurityStandalone_Help">
-The Enhanced Security feature is designed to limit document behaviors in workflows where those behaviors are perceived as a vulnerability or security risk. 
+The Enhanced Security feature is designed to limit document behaviors in workflows where those behaviors are perceived as a vulnerability or security risk.
 Enhanced Security blocks 6 specific behaviors: data injection, script injection, silent printing, web links (if not allowed by Trust Manager settings), cross domain access, and access to external streams.
-Standalone mode occurs when Adobe Reader is running as an application. 
-Enhanced Security is enabled by default. 
+Standalone mode occurs when Adobe Reader is running as an application.
+Enhanced Security is enabled by default.
 Configuring this setting to Enabled or Disabled prevents users from changing it from the administrator's desired configuration.
 Not Configured and Enabled have the same behavior of enabling Enhanced Security but users can change the value when it is set to Not Configured.
     </string>
 
     <string id="EnhancedSecurityBrowser">Enhanced Security: browser mode</string>
     <string id="EnhancedSecurityBrowser_Help">
-The Enhanced Security feature is designed to limit document behaviors in workflows where those behaviors are perceived as a vulnerability or security risk. 
-Enhanced Security blocks 6 specific behaviors: data injection, script injection, silent printing, web links (if not allowed by Trust Manager settings), cross domain access, and access to external streams. 
-Browser mode occurs when Adobe Reader is running as a browser plugin. 
-Enhanced Security is enabled by default. 
-Configuring this setting to Enabled or Disabled prevents users from changing it from the administrator's desired configuration. 
-Not Configured and Enabled have the same behavior of enabling Enhanced Security. 
+The Enhanced Security feature is designed to limit document behaviors in workflows where those behaviors are perceived as a vulnerability or security risk.
+Enhanced Security blocks 6 specific behaviors: data injection, script injection, silent printing, web links (if not allowed by Trust Manager settings), cross domain access, and access to external streams.
+Browser mode occurs when Adobe Reader is running as a browser plugin.
+Enhanced Security is enabled by default.
+Configuring this setting to Enabled or Disabled prevents users from changing it from the administrator's desired configuration.
+Not Configured and Enabled have the same behavior of enabling Enhanced Security.
 Users can change the value when it is set to Not Configured.
     </string>
 
       <string id="ProtectedView">Protected View</string>
       <string id="ProtectedView_Help">
-Protected View is a highly secure, read-only mode that blocks most actions and application behavior until the user decides whether or not to trust the document. 
-This helps protect users from potentially malicous content inside PDF files. 
-Protected View is only supported when Protected Mode is also enabled. 
-Protected View is disabled by default. 
+Protected View is a highly secure, read-only mode that blocks most actions and application behavior until the user decides whether or not to trust the document.
+This helps protect users from potentially malicous content inside PDF files.
+Protected View is only supported when Protected Mode is also enabled.
+Protected View is disabled by default.
 Not Configured and Disabled have the same behavior of disabling Protected Mode Protected View.
 Users can change the value when it is set to Not Configured.
       </string>
@@ -1188,7 +1195,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="ProtectedViewMode" />
       <presentation id="LoadSettingsFromURLCust" />
       <presentation id="LoadSettingsFromURLAATL" />
-      <presentation id="LoadSettingsFromURLEUTL" />      
+      <presentation id="LoadSettingsFromURLEUTL" />
       <presentation id="DisablePDFHandlerSwitching" />
       <presentation id="DisableJavaScript" />
       <presentation id="ShowMsgAtLaunch" />
@@ -1207,7 +1214,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>
       </presentation>
-    
+
       <presentation id="ProtectedView_Dropdown">
         <dropdownList defaultItem="2" refId="ProtectedViewLevel">Protected View:</dropdownList>
       </presentation>
@@ -1221,7 +1228,7 @@ Not Configured and Disabled have the same behavior.
                 }
                 #endregion
             }
-        }    
+        }
     }
 }
 End {}
