@@ -29,7 +29,7 @@ Find-Module -Name AdobeGPOTemplates -Repository PSGallery
 ```
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------                                   
-1.0.1      AdobeGPOTemplates                   PSGallery            AdobeGPOTemplates is a module ...
+1.0.2      AdobeGPOTemplates                   PSGallery            AdobeGPOTemplates is a module ...
 ```
 
 ```powershell
@@ -42,8 +42,8 @@ Stop and please review the content of the module, I mean the code to make sure i
 You can also verify that the SHA256 hashes of downloaded files match those stored in the catalog file
 ```powershell
 $HT = @{
-    CatalogFilePath = "~/Downloads/AdobeGPOTemplates/1.0.1/AdobeGPOTemplates.cat"
-    Path = "~/Downloads/AdobeGPOTemplates/1.0.1"
+    CatalogFilePath = "~/Downloads/AdobeGPOTemplates/1.0.2/AdobeGPOTemplates.cat"
+    Path = "~/Downloads/AdobeGPOTemplates/1.0.2"
     Detailed = $true
     FilesToSkip = 'PSGetModuleInfo.xml'
 }
@@ -52,7 +52,7 @@ Test-FileCatalog @HT
 
 ```powershell
 # Import the module
-Import-Module ~/Downloads/AdobeGPOTemplates/1.0.1/AdobeGPOTemplates.psd1 -Force -Verbose
+Import-Module ~/Downloads/AdobeGPOTemplates/1.0.2/AdobeGPOTemplates.psd1 -Force -Verbose
 ```
 
 <a name="Functions"/>
@@ -64,7 +64,7 @@ Get-Command -Module AdobeGPOTemplates
 ```
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        New-AdobeGPOTemplate                               1.0.1      AdobeGPOTemp...
+Function        New-AdobeGPOTemplate                               1.0.2      AdobeGPOTemp...
 ```
 <a name="Help"/>
 
@@ -93,19 +93,19 @@ SYNOPSIS
 
     -------------------------- EXAMPLE 1 --------------------------
 
-    PS C:\>New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,2017,2015
+    PS C:\>New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,2017,2020
 
     Confirm
     Are you sure you want to perform this action?
-    Performing the operation "Create files" on target "AdobeReader2015.adm?".
+    Performing the operation "Create files" on target "AdobeReader2020.adm?".
     [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
 
     It creates the following files:
         Adobe.admx, Adobe.adml
-        AdobeAcrobat2015.admx, AdobeAcrobat2015.adml
+        AdobeAcrobat2020.admx, AdobeAcrobat2020.adml
         AdobeAcrobat2017.admx, AdobeAcrobat2017.adml
         AdobeAcrobatDC.admx, AdobeAcrobatDC.adml
-        AdobeReader2015.admx, AdobeReader2015.adml
+        AdobeReader2020.admx, AdobeReader2020.adml
         AdobeReader2017.admx, AdobeReader2017.adml
         AdobeReaderDC.admx, AdobeReaderDC.adml
 
