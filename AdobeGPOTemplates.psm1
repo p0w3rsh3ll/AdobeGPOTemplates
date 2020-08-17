@@ -167,6 +167,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="ENABLE_CHROMEEXT"
+  class="Machine"
+  displayName="`$(string.ENABLE_CHROMEEXT)"
+  explainText="`$(string.ENABLE_CHROMEEXT_Help)"
+  key="Software\Adobe\$($f)\$($v)\Installer"
+  valueName="ENABLE_CHROMEEXT">
+  <parentCategory ref="OtherCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
     <policy name="SendMailShareRedirection"
         class="Machine"
         displayName="`$(string.SendMailShareRedirection)"
@@ -833,6 +845,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
       <string id="OtherCategory">Other</string>
       <string id="TrustedLocationCategory">Trusted Locations</string>
 
+      <string id="ENABLE_CHROMEEXT">Suppresses the First Time in-app experience</string>
+      <string id="ENABLE_CHROMEEXT_Help">
+Enable to suppress the First Time in-app experience if you do not want users to see the in-app experience for Chrome extension
+      </string>
       <string id="SendMailShareRedirection">Mail icon behavior</string>
       <string id="SendMailShareRedirection_Help">
 You can change the behavior of the email icon to send a PDF directly as email attachment.
