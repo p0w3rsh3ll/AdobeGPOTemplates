@@ -256,7 +256,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- Trust Manager > Internet Access -->
     <policy name="Hyperlinks"
-        class="Machine"
+        class="Both"
         displayName="`$(string.Hyperlinks)"
         explainText="`$(string.Hyperlinks_Help)"
         key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
@@ -272,6 +272,30 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         displayName="`$(string.HyperlinksUserList)"
         explainText="`$(string.HyperlinksUserList_Help)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
+        valueName="iUnknownURLPerms"
+        presentation="`$(presentation.HyperlinksUserList_Dropdown)">
+        <parentCategory ref="EmbeddedContentCategory"/>
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
+        <elements>
+            <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
+                <item displayName="`$(string.AlwaysAsk)">
+                    <value><decimal value="1" /></value>
+                </item>
+                <item displayName="`$(string.AlwaysAllow)">
+                    <value><decimal value="2" /></value>
+                </item>
+                <item displayName="`$(string.AlwaysBlock)">
+                    <value><decimal value="3" /></value>
+                </item>
+            </enum>
+        </elements>
+    </policy>
+
+    <policy name="HyperlinksUserList"
+        class="User"
+        displayName="`$(string.HyperlinksUserList)"
+        explainText="`$(string.HyperlinksUserList_Help)"
+        key="Software\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
         valueName="iUnknownURLPerms"
         presentation="`$(presentation.HyperlinksUserList_Dropdown)">
         <parentCategory ref="EmbeddedContentCategory"/>
