@@ -274,7 +274,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
         valueName="iUnknownURLPerms"
         presentation="`$(presentation.HyperlinksUserList_Dropdown)">
-        <parentCategory ref="EmbeddedContentCategory"/>
+        <parentCategory ref="TrustedLocationCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <elements>
             <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
@@ -295,10 +295,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         class="User"
         displayName="`$(string.HyperlinksUserList)"
         explainText="`$(string.HyperlinksUserList_Help)"
-        key="Software\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
+        key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
         valueName="iUnknownURLPerms"
         presentation="`$(presentation.HyperlinksUserList_Dropdown)">
-        <parentCategory ref="EmbeddedContentCategory"/>
+        <parentCategory ref="TrustedLocationCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <elements>
             <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
