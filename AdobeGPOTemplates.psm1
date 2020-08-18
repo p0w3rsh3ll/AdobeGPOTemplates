@@ -267,7 +267,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="2" /></disabledValue>
     </policy>
 
-    <policy name="HyperlinksUserList"
+    <policy name="HyperlinksUserList_MP"
         class="Machine"
         displayName="`$(string.HyperlinksUserList)"
         explainText="`$(string.HyperlinksUserList_Help)"
