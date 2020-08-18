@@ -171,12 +171,12 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   class="Machine"
   displayName="`$(string.ENABLE_CHROMEEXT)"
   explainText="`$(string.ENABLE_CHROMEEXT_Help)"
-  key="Software\Adobe\$($f)\$($v)\Installer"
+  key="Software\WOW6432Node\Adobe\$($f)\$($v)\Installer"
   valueName="ENABLE_CHROMEEXT">
   <parentCategory ref="OtherCategory"/>
   <supportedOn ref="adobe:SUPPORTED_Windows7" />
-  <enabledValue><decimal value="1" /></enabledValue>
-  <disabledValue><decimal value="0" /></disabledValue>
+  <enabledValue><decimal value="0" /></enabledValue>
+  <disabledValue><decimal value="1" /></disabledValue>
 </policy>
 
     <policy name="SendMailShareRedirection"
