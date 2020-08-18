@@ -256,7 +256,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- Trust Manager > Internet Access -->
     <policy name="Hyperlinks"
-        class="Both"
+        class="User"
         displayName="`$(string.Hyperlinks)"
         explainText="`$(string.Hyperlinks_Help)"
         key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
