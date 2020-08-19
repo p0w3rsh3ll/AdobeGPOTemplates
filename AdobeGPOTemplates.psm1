@@ -5,28 +5,28 @@ Function New-AdobeGPOTemplate {
         Create Admx and Adml GPO templates for Adobe products
 
     .DESCRIPTION
-        Create Admx and Adml GPO templates for Adobe Reader and Acrobat versions DC and/or 2015, 2017
+        Create Admx and Adml GPO templates for Adobe Reader and Acrobat versions DC and/or 201x, 202x
 
     .PARAMETER Product
         Indicate the product(s): can be Reader, Acrobat or both.
 
     .PARAMETER Version
-        Indicate the version(s): can be DC and/or 2015 and/or 2017
+        Indicate the version(s): can be DC and/or 2015 and/or 2017 and/or 2020
 
     .EXAMPLE
-        New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,2017,2015
+        New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,2017,2020
 
         Confirm
         Are you sure you want to perform this action?
-        Performing the operation "Create files" on target "AdobeReader2015.adm?".
+        Performing the operation "Create files" on target "AdobeReader2020.adm?".
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
 
         It creates the following files:
             Adobe.admx, Adobe.adml
-            AdobeAcrobat2015.admx, AdobeAcrobat2015.adml
+            AdobeAcrobat2020.admx, AdobeAcrobat2020.adml
             AdobeAcrobat2017.admx, AdobeAcrobat2017.adml
             AdobeAcrobatDC.admx, AdobeAcrobatDC.adml
-            AdobeReader2015.admx, AdobeReader2015.adml
+            AdobeReader2020.admx, AdobeReader2020.adml
             AdobeReader2017.admx, AdobeReader2017.adml
             AdobeReaderDC.admx, AdobeReaderDC.adml
 
@@ -46,7 +46,7 @@ Param(
     [string[]]$Product='Reader',
 
     [Parameter()]
-    [ValidateSet('2017','2015','DC','11.0','10.0','9.0')]
+    [ValidateSet('2020','2017','2015','DC','11.0','10.0','9.0')]
     [string[]]$Version='DC'
 )
 Begin {
@@ -167,6 +167,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="ENABLE_CHROMEEXT"
+  class="Machine"
+  displayName="`$(string.ENABLE_CHROMEEXT)"
+  explainText="`$(string.ENABLE_CHROMEEXT_Help)"
+  key="Software\WOW6432Node\Adobe\$($f)\$($v)\Installer"
+  valueName="ENABLE_CHROMEEXT">
+  <parentCategory ref="OtherCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="0" /></enabledValue>
+  <disabledValue><decimal value="1" /></disabledValue>
+</policy>
+
     <policy name="SendMailShareRedirection"
         class="Machine"
         displayName="`$(string.SendMailShareRedirection)"
@@ -244,7 +256,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
     <!-- Trust Manager > Internet Access -->
     <policy name="Hyperlinks"
-        class="Machine"
+        class="User"
         displayName="`$(string.Hyperlinks)"
         explainText="`$(string.Hyperlinks_Help)"
         key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
@@ -255,14 +267,38 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="2" /></disabledValue>
     </policy>
 
-    <policy name="HyperlinksUserList"
+    <policy name="HyperlinksUserList_MP"
         class="Machine"
         displayName="`$(string.HyperlinksUserList)"
         explainText="`$(string.HyperlinksUserList_Help)"
         key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown\cDefaultLaunchURLPerms"
         valueName="iUnknownURLPerms"
         presentation="`$(presentation.HyperlinksUserList_Dropdown)">
-        <parentCategory ref="EmbeddedContentCategory"/>
+        <parentCategory ref="TrustedLocationCategory"/>
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
+        <elements>
+            <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
+                <item displayName="`$(string.AlwaysAsk)">
+                    <value><decimal value="1" /></value>
+                </item>
+                <item displayName="`$(string.AlwaysAllow)">
+                    <value><decimal value="2" /></value>
+                </item>
+                <item displayName="`$(string.AlwaysBlock)">
+                    <value><decimal value="3" /></value>
+                </item>
+            </enum>
+        </elements>
+    </policy>
+
+    <policy name="HyperlinksUserList"
+        class="User"
+        displayName="`$(string.HyperlinksUserList)"
+        explainText="`$(string.HyperlinksUserList_Help)"
+        key="Software\Adobe\$($f)\$($v)\TrustManager\cDefaultLaunchURLPerms"
+        valueName="iUnknownURLPerms"
+        presentation="`$(presentation.HyperlinksUserList_Dropdown)">
+        <parentCategory ref="TrustedLocationCategory"/>
         <supportedOn ref="adobe:SUPPORTED_Windows7" />
         <elements>
             <enum id="HyperlinksUserListMode" valueName="iUnknownURLPerms" required="true">
@@ -833,6 +869,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
       <string id="OtherCategory">Other</string>
       <string id="TrustedLocationCategory">Trusted Locations</string>
 
+      <string id="ENABLE_CHROMEEXT">Suppresses the First Time in-app experience</string>
+      <string id="ENABLE_CHROMEEXT_Help">
+Enable to suppress the First Time in-app experience if you do not want users to see the in-app experience for Chrome extension
+      </string>
       <string id="SendMailShareRedirection">Mail icon behavior</string>
       <string id="SendMailShareRedirection_Help">
 You can change the behavior of the email icon to send a PDF directly as email attachment.

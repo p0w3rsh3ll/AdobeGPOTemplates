@@ -121,6 +121,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### ENABLE_CHROMEEXT
+
+<img src=Media/HKLM/ENABLE_CHROMEEXT.PNG  width="600">
+
 #### bSendMailShareRedirection
 
 <img src=Media/HKLM/bSendMailShareRedirection-UI.JPG  width="600">
