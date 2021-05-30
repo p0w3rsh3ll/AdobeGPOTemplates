@@ -153,7 +153,7 @@ gpedit.msc
 
 ## Credits
 Thanks go to:
-* **[@iadgov](https://github.com/iadgov/)**: 
+* **[@nsacyber](https://github.com/nsacyber/Windows-Secure-Host-Baseline/commits/master/Adobe%20Reader)**: 
 
 <a name="OtherLinks"/>
 
