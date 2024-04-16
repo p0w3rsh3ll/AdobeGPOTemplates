@@ -121,6 +121,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bEnableAV2Enterprise
+
+<img src=Media/HKLM/bEnableAV2Enterprise.PNG  width="600">
+
 #### ENABLE_CHROMEEXT
 
 <img src=Media/HKLM/ENABLE_CHROMEEXT.PNG  width="600">
