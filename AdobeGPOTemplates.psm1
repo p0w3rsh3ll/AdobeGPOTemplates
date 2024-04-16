@@ -167,6 +167,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="bEnableGentech"
+  class="Machine"
+  displayName="`$(string.bEnableGentech)"
+  explainText="`$(string.bEnableGentech_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bEnableGentech">
+  <parentCategory ref="OtherCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="bEnableAV2Enterprise"
   class="Machine"
   displayName="`$(string.bEnableAV2Enterprise)"
@@ -887,6 +899,12 @@ The new app UI is rolling out in phases over 2023.
 Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
      </string>
+
+      <string id="bEnableGentech">Disable Generative AI</string>
+      <string id="bEnableGentech_Help">
+Set to Enabled to enable the Generative AI feature in Acrobat
+Set to Disabled to disable the Generative AI feature in Acrobat
+      </string>
 
       <string id="ENABLE_CHROMEEXT">Suppresses the First Time in-app experience</string>
       <string id="ENABLE_CHROMEEXT_Help">

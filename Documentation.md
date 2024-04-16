@@ -121,6 +121,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bEnableGentech
+
+https://helpx.adobe.com/acrobat/using/disable-generative-ai.html
+
 #### bEnableAV2Enterprise
 
 <img src=Media/HKLM/bEnableAV2Enterprise.PNG  width="600">
