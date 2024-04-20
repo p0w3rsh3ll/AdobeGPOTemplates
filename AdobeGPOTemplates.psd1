@@ -4,7 +4,7 @@
 RootModule = 'AdobeGPOTemplates.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.2'
+ModuleVersion = '1.0.3'
 
 # ID used to uniquely identify this module
 GUID = '27e77a2e-7108-4769-9e84-99055ded8eb9'
@@ -19,7 +19,7 @@ Copyright = 'BSD 3-Clause'
 Description = 'AdobeGPOTemplates is a module that will help create group policies (GPO) ADMX templates for Adobe Reader and Acrobat'
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '3.0'
+PowerShellVersion = '5.1'
 
 # Minimum version of Microsoft .NET Framework required by this module
 # DotNetFrameworkVersion = '4.0'
@@ -36,7 +36,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('security','defense','Adobe')
+        Tags = @('security','defense','Adobe','PSEdition_Core','PSEdition_Desktop')
 
         # A URL to the license for this module.
         LicenseUri = 'https://opensource.org/licenses/BSD-3-Clause'
