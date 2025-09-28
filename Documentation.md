@@ -121,6 +121,14 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bIsSCReducedModeEnforcedEx
+
+https://helpx.adobe.com/acrobat/kb/acrobat-unified-installer-windows-overview.html
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/Wizard/installoptions.html#suppress-sign-in
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/DesktopDeployment/singleinstaller.html#installing-on-a-clean-machine
+
 #### bEnableGentech
 
 https://helpx.adobe.com/acrobat/using/disable-generative-ai.html
