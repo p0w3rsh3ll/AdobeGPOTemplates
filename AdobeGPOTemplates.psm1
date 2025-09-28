@@ -168,6 +168,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="bDisableThumbnailPreviewHandler"
+  class="Machine"
+  displayName="`$(string.bDisableThumbnailPreviewHandler)"
+  explainText="`$(string.bDisableThumbnailPreviewHandler_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bDisableThumbnailPreviewHandler">
+  <parentCategory ref="OtherCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="bIsSCReducedModeEnforcedEx"
   class="Machine"
   displayName="`$(string.bIsSCReducedModeEnforcedEx)"
@@ -179,7 +191,6 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   <enabledValue><decimal value="1" /></enabledValue>
   <disabledValue><decimal value="0" /></disabledValue>
 </policy>
-
 
   <policy name="bEnableGentech"
   class="Machine"
@@ -913,6 +924,12 @@ The new app UI is rolling out in phases over 2023.
 Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
      </string>
+
+      <string id="bDisableThumbnailPreviewHandler">Disable thumbnails in Windows Explorer</string>
+      <string id="bDisableThumbnailPreviewHandler_Help">
+Set to Enabled to: Prevent the end user from enabling PDF preview in Windows Explorer
+Set to Disabled to: Allow the end user from enabling PDF preview in Windows Explorer
+      </string>
 
       <string id="bIsSCReducedModeEnforcedEx">Disable mandatory sign-in</string>
       <string id="bIsSCReducedModeEnforcedEx_Help">

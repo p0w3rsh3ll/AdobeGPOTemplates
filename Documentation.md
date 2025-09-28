@@ -121,6 +121,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bDisableThumbnailPreviewHandler
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/Wizard/othersettings.html#disable-thumbnails-in-windows-explorer
+
 #### bIsSCReducedModeEnforcedEx
 
 https://helpx.adobe.com/acrobat/kb/acrobat-unified-installer-windows-overview.html
