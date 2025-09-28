@@ -5,16 +5,16 @@ Function New-AdobeGPOTemplate {
         Create Admx and Adml GPO templates for Adobe products
 
     .DESCRIPTION
-        Create Admx and Adml GPO templates for Adobe Reader and Acrobat versions DC and/or 201x, 202x
+        Create Admx and Adml GPO templates for Adobe Reader and Acrobat versions
 
     .PARAMETER Product
         Indicate the product(s): can be Reader, Acrobat or both.
 
     .PARAMETER Version
-        Indicate the version(s): can be DC and/or 2015 and/or 2017 and/or 2020
+        Indicate the version(s): can be DC and/or Classic and/or 2015 and/or 2017 and/or 2020
 
     .EXAMPLE
-        New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,2017,2020
+        New-AdobeGPOTemplate -Product Reader,Acrobat -Version DC,Classic,2017,2020
 
         Confirm
         Are you sure you want to perform this action?
@@ -29,6 +29,7 @@ Function New-AdobeGPOTemplate {
             AdobeReader2020.admx, AdobeReader2020.adml
             AdobeReader2017.admx, AdobeReader2017.adml
             AdobeReaderDC.admx, AdobeReaderDC.adml
+            AdobeReaderClassic.admx, AdobeReaderClassic.adml
 
     .EXAMPLE
         New-AdobeGPOTemplate -Product Reader -Version DC -Confirm:$false
@@ -46,7 +47,7 @@ Param(
     [string[]]$Product='Reader',
 
     [Parameter()]
-    [ValidateSet('2020','2017','2015','DC','11.0','10.0','9.0')]
+    [ValidateSet('Classic','2020','2017','2015','DC','11.0','10.0','9.0')]
     [string[]]$Version='DC'
 )
 Begin {
