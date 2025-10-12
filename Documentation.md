@@ -317,6 +317,10 @@ https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
 https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
+#### bEnableDKEAdmin
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
+
 <a name="HKCU"/>
 
 ## HKCU

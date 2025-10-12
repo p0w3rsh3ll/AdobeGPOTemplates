@@ -211,6 +211,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   <disabledValue><decimal value="0" /></disabledValue>
 </policy>
 
+  <policy name="bEnableDKEAdmin"
+  class="Machine"
+  displayName="`$(string.bEnableDKEAdmin)"
+  explainText="`$(string.bEnableDKEAdmin_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bEnableDKEAdmin">
+  <parentCategory ref="MPIPCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="bDisableThumbnailPreviewHandler"
   class="Machine"
   displayName="`$(string.bDisableThumbnailPreviewHandler)"
@@ -1052,6 +1064,12 @@ Set to Disabled to: disable the Default and Mandatory labelling
 Set to Enabled to: Enable the Default and Mandatory labelling
      </string>
 
+      <string id="bEnableDKEAdmin">Enable double key encryption for MPIP operations</string>
+      <string id="bEnableDKEAdmin_Help">
+Set to Disabled to: disable double key encryption for MPIP operations
+Set to Enabled to: Enable double key encryption for MPIP operations
+     </string>
+
       <string id="bShowDMB">Enable the document message bar</string>
       <string id="bShowDMB_Help">
 To enable the document message bar in MPIP protected PDFs
@@ -1489,6 +1507,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="bMIPCheckPolicyOnDocSave" />
       <presentation id="bMIPExternalAuthAdmin" />
       <presentation id="bMIPLabelling" />
+      <presentation id="bEnableDKEAdmin" />
 
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>
