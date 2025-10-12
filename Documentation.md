@@ -321,6 +321,11 @@ https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
 https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
+#### iMIPCloud
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
+https://learn.microsoft.com/it-it/dotnet/api/microsoft.informationprotection.cloud?view=mipsdk-dotnet-1.6
+
 <a name="HKCU"/>
 
 ## HKCU

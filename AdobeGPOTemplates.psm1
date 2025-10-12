@@ -223,6 +223,48 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   <disabledValue><decimal value="0" /></disabledValue>
 </policy>
 
+  <policy name="iMIPCloud"
+   class="Machine"
+   displayName="`$(string.iMIPCloud)"
+   explainText="`$(string.iMIPCloud_Help)"
+   key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+   valueName="iMIPCloud"
+   presentation="`$(presentation.iMIPCloud_Dropdown)">
+   <parentCategory ref="MPIPCategory"/>
+   <supportedOn ref="adobe:SUPPORTED_Windows7" />
+        <elements>
+            <enum id="iMIPCloudLevel" valueName="iMIPCloud" required="true">
+                <item displayName="`$(string.TestCloud)">
+                    <value><decimal value="2" /></value>
+                </item>
+                <item displayName="`$(string.Commercial)">
+                    <value><decimal value="3" /></value>
+                </item>
+                <item displayName="`$(string.Germany)">
+                    <value><decimal value="4" /></value>
+                </item>
+                <item displayName="`$(string.US_DoD)">
+                    <value><decimal value="5" /></value>
+                </item>
+                <item displayName="`$(string.US_GCC)">
+                    <value><decimal value="6" /></value>
+                </item>
+                <item displayName="`$(string.US_GCC_High)">
+                    <value><decimal value="7" /></value>
+                </item>
+                <item displayName="`$(string.US_Sec)">
+                    <value><decimal value="8" /></value>
+                </item>
+                <item displayName="`$(string.US_Nat)">
+                    <value><decimal value="9" /></value>
+                </item>
+                <item displayName="`$(string.China_01)">
+                    <value><decimal value="10" /></value>
+                </item>
+            </enum>
+      </elements>
+  </policy>
+
   <policy name="bDisableThumbnailPreviewHandler"
   class="Machine"
   displayName="`$(string.bDisableThumbnailPreviewHandler)"
@@ -1471,6 +1513,21 @@ Setting to Enabled will allow PDF files openned from OS Trusted Sites to open no
 Not Configured and Disabled have the same behavior.
         </string>
 
+    <string id="iMIPCloud">Point MPIP to your Microsoft Cloud type</string>
+    <string id="iMIPCloud_Help">
+ When working with the MPIP protected PDFs, you must configure the registry to point Adobe Acrobat or Reader to your Microsoft (Sovereign) Cloud type.
+    </string>
+
+    <string id="TestCloud">Test cloud</string>
+    <string id="Commercial">Global commercial cloud</string>
+    <string id="Germany">Germany sovereign cloud</string>
+    <string id="US_DoD">US sovereign cloud (DoD)</string>
+    <string id="US_GCC">US sovereign cloud (GCC)</string>
+    <string id="US_GCC_High">US sovereign cloud (GCC-High)</string>
+    <string id="US_Sec">US sovereign cloud (Sec)</string>
+    <string id="US_Nat">US sovereign cloud (Nat)</string>
+    <string id="China_01">China sovereign cloud</string>
+
     </stringTable>
 
     <presentationTable>
@@ -1511,6 +1568,10 @@ Not Configured and Disabled have the same behavior.
 
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>
+      </presentation>
+
+      <presentation id="iMIPCloud_Dropdown">
+        <dropdownList defaultItem="2" refId="iMIPCloudLevel">Cloud type:</dropdownList>
       </presentation>
 
       <presentation id="ProtectedView_Dropdown">
