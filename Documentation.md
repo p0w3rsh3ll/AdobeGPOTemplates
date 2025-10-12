@@ -231,6 +231,14 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 <img src=Media/HKLM/iProtectedView-reg.JPG  width="600">
 <img src=Media/HKLM/iProtectedView-web.JPG  width="600">
 
+#### bAutoLaunchAtDocClose
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/Wizard/redaction.html#remove-hidden-information
+
+#### bAutoLaunchAtSendMail
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/Wizard/redaction.html#remove-hidden-information
+
 <a name="TrustedLocations"/>
 
 ### Trusted Locations

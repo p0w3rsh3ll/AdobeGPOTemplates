@@ -216,6 +216,30 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   <disabledValue><decimal value="0" /></disabledValue>
 </policy>
 
+  <policy name="bAutoLaunchAtDocClose"
+   class="User"
+   displayName="`$(string.bAutoLaunchAtDocClose)"
+   explainText="`$(string.bAutoLaunchAtDocClose_Help)"
+   key="Software\Adobe\$($f)\$($v)\Security"
+   valueName="bAutoLaunchAtDocClose">
+   <parentCategory ref="SecurityCategory"/>
+   <supportedOn ref="adobe:SUPPORTED_Windows7" />
+   <enabledValue><decimal value="1" /></enabledValue>
+   <disabledValue><decimal value="0" /></disabledValue>
+ </policy>
+
+  <policy name="bAutoLaunchAtSendMail"
+   class="User"
+   displayName="`$(string.bAutoLaunchAtSendMail)"
+   explainText="`$(string.bAutoLaunchAtSendMail_Help)"
+   key="Software\Adobe\$($f)\$($v)\Security"
+   valueName="bAutoLaunchAtSendMail">
+   <parentCategory ref="SecurityCategory"/>
+   <supportedOn ref="adobe:SUPPORTED_Windows7" />
+   <enabledValue><decimal value="1" /></enabledValue>
+   <disabledValue><decimal value="0" /></disabledValue>
+ </policy>
+
   <policy name="ENABLE_CHROMEEXT"
   class="Machine"
   displayName="`$(string.ENABLE_CHROMEEXT)"
@@ -941,6 +965,18 @@ Set to Disabled to enable the mandatory sign-in in Acrobat
       <string id="bEnableGentech_Help">
 Set to Enabled to enable the Generative AI feature in Acrobat
 Set to Disabled to disable the Generative AI feature in Acrobat
+      </string>
+
+      <string id="bAutoLaunchAtDocClose">Examine document when closing document</string>
+      <string id="bAutoLaunchAtDocClose_Help">
+Set to Enabled to examine document when closing document in Acrobat
+Set to Disabled to disable examining document when closing document in Acrobat
+      </string>
+
+      <string id="bAutoLaunchAtSendMail">Examine document when sending document by email</string>
+      <string id="bAutoLaunchAtSendMail_Help">
+Set to Enabled to examine document when sending document by email in Acrobat
+Set to Disabled to disable examine document when sending document by email in Acrobat
       </string>
 
       <string id="ENABLE_CHROMEEXT">Suppresses the First Time in-app experience</string>
