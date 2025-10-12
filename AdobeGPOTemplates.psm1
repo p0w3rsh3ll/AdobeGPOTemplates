@@ -165,6 +165,9 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     <category displayName="`$(string.OtherCategory)" name="OtherCategory">
       <parentCategory ref="$($p)$($catID)"/>
     </category>
+    <category displayName="`$(string.MPIPCategory)" name="MPIPCategory">
+      <parentCategory ref="$($p)$($catID)"/>
+    </category>
   </categories>
   <policies>
 
@@ -935,6 +938,19 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
+    <policy name="bShowDMB"
+     class="User"
+     displayName="`$(string.bShowDMB)"
+     explainText="`$(string.bShowDMB_Help)"
+     presentation="`$(presentation.bShowDMB)"
+     key="Software\Adobe\$($f)\$($v)\MicrosoftAIP"
+     valueName="bShowDMB">
+     <parentCategory ref="MPIPCategory" />
+     <supportedOn ref="adobe:SUPPORTED_Windows7" />
+     <enabledValue><decimal value="1" /></enabledValue>
+     <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
   </policies>
 </policyDefinitions>
 "@                  | Out-File -FilePath $ADMXfile -ErrorAction Stop -Encoding UTF8
@@ -965,6 +981,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
       <string id="EmbeddedContentCategory">Embedded Content</string>
       <string id="UpdaterCategory">Updater</string>
       <string id="OtherCategory">Other</string>
+      <string id="MPIPCategory">Purview</string>
       <string id="TrustedLocationCategory">Trusted Locations</string>
 
       <string id="bEnableAV2Enterprise">Specifies whether to enable the Modern Viewer</string>
@@ -972,6 +989,13 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 The new app UI is rolling out in phases over 2023.
 Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
+     </string>
+
+      <string id="bShowDMB">Enable the document message bar</string>
+      <string id="bShowDMB_Help">
+To enable the document message bar in MPIP protected PDFs
+Set to Disabled to: Don't show the message bar
+Set to Enabled to: Show the message bar
      </string>
 
       <string id="bUpdateToSingleApp">Stop automatic upgrade of Acrobat Reader 32-bit to Acrobat Reader 64-bit</string>
@@ -1400,6 +1424,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="ToggleSendAndTrack" />
       <presentation id="DisableSharePointFeatures" />
       <presentation id="AdobeSendPluginToggle" />
+      <presentation id="bShowDMB" />
 
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>

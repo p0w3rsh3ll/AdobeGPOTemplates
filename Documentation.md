@@ -16,6 +16,7 @@ AdobeGPOTemplates PowerShell Module
   * [Security](#HKCUSecurity)
   * [Trusted Locations](#HKCUTrustedLocations)
   * [Updater](#HKCUUpdater)
+  * [MPIP](#HKCUMPIP)
 
 [http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html](http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/index.html)
 
@@ -413,3 +414,11 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/AdobeViewer.ht
 <img src=Media/HKCU/EULA-GPO-UI.JPG  width="600">
 <img src=Media/HKCU/EULA-reg.JPG  width="600">
 <img src=Media/HKCU/EULA-web.JPG  width="600">
+
+<a name="HKCUMPIP"/>
+
+### Microsoft Purview Information Protection
+
+#### bShowDMB 
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
