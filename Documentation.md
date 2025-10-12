@@ -319,6 +319,12 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 <img src=Media/HKCU/bAllowOpenFile-GPO-UI.JPG  width="600">
 <img src=Media/HKCU/bAllowOpenFile-reg.JPG  width="600">
 
+#### bDisplayAboutDialog
+
+https://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Originals.html#idkeyname_1_16914
+
+<img src=Media/HKCU/bDisplayAboutDialog-web.JPG width="600">
+
 #### bAutoUriDetect
 
 <img src=Media/HKCU/bAutoUriDetect-GPO-UI.JPG  width="600">

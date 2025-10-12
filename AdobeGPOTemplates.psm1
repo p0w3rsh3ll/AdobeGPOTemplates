@@ -802,6 +802,19 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
         <disabledValue><decimal value="0" /></disabledValue>
     </policy>
 
+    <policy name="bDisplayAboutDialog"
+	class="User"
+        displayName="`$(string.bDisplayAboutDialog)"
+	 explainText="`$(string.bDisplayAboutDialog_Help)"
+	presentation="`$(presentation.bDisplayAboutDialog)"
+	key="Software\Adobe\$($f)\$($v)\Originals"
+	valueName="bDisplayAboutDialog">
+        <parentCategory ref="EmbeddedContentCategory" />
+        <supportedOn ref="adobe:SUPPORTED_Windows7" />
+        <enabledValue><decimal value="1" /></enabledValue>
+        <disabledValue><decimal value="0" /></disabledValue>
+    </policy>
+
     <policy name="GreyouttheLaunchfunctionality"
         class="User"
         displayName="`$(string.GreyouttheLaunchfunctionality)"
@@ -977,6 +990,12 @@ Set to Disabled to disable examining document when closing document in Acrobat
       <string id="bAutoLaunchAtSendMail_Help">
 Set to Enabled to examine document when sending document by email in Acrobat
 Set to Disabled to disable examine document when sending document by email in Acrobat
+      </string>
+
+      <string id="bDisplayAboutDialog">Display splash screen at launch</string>
+      <string id="bDisplayAboutDialog_Help">
+Set to Disabled to Don't display the startup splash screen. 
+Set to Enabled to Display the startup splash screen at every launch.
       </string>
 
       <string id="ENABLE_CHROMEEXT">Suppresses the First Time in-app experience</string>
@@ -1335,6 +1354,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="JavaScript" />
       <presentation id="AdobeWelcomeScreen" />
       <presentation id="Launchfunctionality" />
+      <presentation id="bDisplayAboutDialog" />
       <presentation id="GreyouttheLaunchfunctionality" />
       <presentation id="DisableAllUpdates" />
       <presentation id="DisableUsageTracking" />
