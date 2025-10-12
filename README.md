@@ -29,7 +29,7 @@ Find-Module -Name AdobeGPOTemplates -Repository PSGallery
 ```
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------                                   
-1.0.3      AdobeGPOTemplates                   PSGallery            AdobeGPOTemplates is a module ...
+2.0.0      AdobeGPOTemplates                   PSGallery            AdobeGPOTemplates is a module ...
 ```
 
 ```powershell
@@ -42,8 +42,8 @@ Stop and please review the content of the module, I mean the code to make sure i
 You can also verify that the SHA256 hashes of downloaded files match those stored in the catalog file
 ```powershell
 $HT = @{
-    CatalogFilePath = "~/Downloads/AdobeGPOTemplates/1.0.3/AdobeGPOTemplates.cat"
-    Path = "~/Downloads/AdobeGPOTemplates/1.0.3"
+    CatalogFilePath = "~/Downloads/AdobeGPOTemplates/2.0.0/AdobeGPOTemplates.cat"
+    Path = "~/Downloads/AdobeGPOTemplates/2.0.0"
     Detailed = $true
     FilesToSkip = 'PSGetModuleInfo.xml'
 }
@@ -52,7 +52,7 @@ Test-FileCatalog @HT
 
 ```powershell
 # Import the module
-Import-Module ~/Downloads/AdobeGPOTemplates/1.0.3/AdobeGPOTemplates.psd1 -Force -Verbose
+Import-Module ~/Downloads/AdobeGPOTemplates/2.0.0/AdobeGPOTemplates.psd1 -Force -Verbose
 ```
 
 <a name="Functions"/>
@@ -64,7 +64,7 @@ Get-Command -Module AdobeGPOTemplates
 ```
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Function        New-AdobeGPOTemplate                               1.0.3      AdobeGPOTemp...
+Function        New-AdobeGPOTemplate                               2.0.0      AdobeGPOTemp...
 ```
 <a name="Help"/>
 

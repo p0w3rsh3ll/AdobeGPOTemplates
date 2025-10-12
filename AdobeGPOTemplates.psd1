@@ -4,7 +4,7 @@
 RootModule = 'AdobeGPOTemplates.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.3'
+ModuleVersion = '2.0.0'
 
 # ID used to uniquely identify this module
 GUID = '27e77a2e-7108-4769-9e84-99055ded8eb9'
