@@ -78,9 +78,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 		    <category name="Acrobat" displayName="$(string.Cat_Acrobat)"><parentCategory ref="adobe:Adobe" /></category>
 </categories>
 </policyDefinitions>
-'@      | Out-File -FilePath Adobe.admx -Encoding UTF8 -ErrorAction Stop
+<!-- Created by module version {0} -->
+'@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+     Out-File -FilePath Adobe.admx -Encoding UTF8 -ErrorAction Stop
     } catch {
-        Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
+     Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
     }
     try {
         @'
@@ -99,9 +101,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
     </stringTable>
   </resources>
 </policyDefinitionResources>
-'@      | Out-File -FilePath Adobe.adml -Encoding UTF8 -ErrorAction Stop
+<!-- Created by module version {0} -->
+'@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+     Out-File -FilePath Adobe.adml -Encoding UTF8 -ErrorAction Stop
     } catch {
-        Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
+     Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
     }
 }
 Process {
@@ -953,9 +957,11 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
   </policies>
 </policyDefinitions>
-"@                  | Out-File -FilePath $ADMXfile -ErrorAction Stop -Encoding UTF8
+<!-- Created by module version {0} -->
+"@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+                 Out-File -FilePath $ADMXfile -ErrorAction Stop -Encoding UTF8
                 } catch {
-                    Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
+                 Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
                 }
                 #endregion
 
@@ -1038,7 +1044,7 @@ Set to Disabled to disable examine document when sending document by email in Ac
 
       <string id="bDisplayAboutDialog">Display splash screen at launch</string>
       <string id="bDisplayAboutDialog_Help">
-Set to Disabled to Don't display the startup splash screen. 
+Set to Disabled to Don't display the startup splash screen.
 Set to Enabled to Display the startup splash screen at every launch.
       </string>
 
@@ -1437,9 +1443,11 @@ Not Configured and Disabled have the same behavior.
     </presentationTable>
   </resources>
 </policyDefinitionResources>
-"@              | Out-File -FilePath $ADMLfile -ErrorAction Stop -Encoding UTF8
+<!-- Created by module version {0} -->
+"@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+                 Out-File -FilePath $ADMLfile -ErrorAction Stop -Encoding UTF8
                 } catch {
-                    Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
+                 Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
                 }
                 #endregion
             }
