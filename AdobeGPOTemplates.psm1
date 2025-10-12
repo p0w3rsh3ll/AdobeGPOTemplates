@@ -175,6 +175,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="bMIPCheckPolicyOnDocSave"
+  class="Machine"
+  displayName="`$(string.bMIPCheckPolicyOnDocSave)"
+  explainText="`$(string.bMIPCheckPolicyOnDocSave_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bMIPCheckPolicyOnDocSave">
+  <parentCategory ref="MPIPCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="bDisableThumbnailPreviewHandler"
   class="Machine"
   displayName="`$(string.bDisableThumbnailPreviewHandler)"
@@ -997,6 +1009,13 @@ Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
      </string>
 
+      <string id="bMIPCheckPolicyOnDocSave">Enable the Default and Mandatory labelling</string>
+      <string id="bMIPCheckPolicyOnDocSave_Help">
+You may be forced to apply labels (mandatory labeling) or the default label may be applied on your PDF if you don't set one (default labeling).
+Set to Disabled to: disable the Default and Mandatory labelling
+Set to Enabled to: Enable the Default and Mandatory labelling
+     </string>
+
       <string id="bShowDMB">Enable the document message bar</string>
       <string id="bShowDMB_Help">
 To enable the document message bar in MPIP protected PDFs
@@ -1431,6 +1450,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="DisableSharePointFeatures" />
       <presentation id="AdobeSendPluginToggle" />
       <presentation id="bShowDMB" />
+      <presentation id="bMIPCheckPolicyOnDocSave" />
 
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>

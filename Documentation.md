@@ -10,7 +10,8 @@ AdobeGPOTemplates PowerShell Module
   * [Other](#Other)
   * [Security](#Security)
   * [Trusted Locations](#TrustedLocations)
-  * [Updater](#Updater)    
+  * [Updater](#Updater)
+  * [MPIP](#MPIP)
 * [HKCU](#HKCU)
   * [Embedded Content](#HKCUEmbeddedContent)
   * [Security](#HKCUSecurity)
@@ -299,6 +300,14 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 <img src=Media/HKLM/cServices-bUpdater-GPO-UI.JPG  width="600">
 <img src=Media/HKLM/cServices-bUpdater-reg.JPG  width="600">
 <img src=Media/HKLM/cServices-bUpdater-web.JPG  width="600">
+
+<a name="MPIP"/>
+
+### Microsoft Purview Information Protection
+
+#### bMIPCheckPolicyOnDocSave
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
 <a name="HKCU"/>
 
