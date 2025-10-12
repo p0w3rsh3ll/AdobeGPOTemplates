@@ -305,6 +305,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
 ### Microsoft Purview Information Protection
 
+#### bMIPLabelling
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
+
 #### bMIPCheckPolicyOnDocSave
 
 https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
