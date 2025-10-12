@@ -240,6 +240,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
    <disabledValue><decimal value="0" /></disabledValue>
  </policy>
 
+  <policy name="bUpdateToSingleApp"
+  class="Machine"
+  displayName="`$(string.bUpdateToSingleApp)"
+  explainText="`$(string.bUpdateToSingleApp_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bUpdateToSingleApp">
+  <parentCategory ref="OtherCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="ENABLE_CHROMEEXT"
   class="Machine"
   displayName="`$(string.ENABLE_CHROMEEXT)"
@@ -960,6 +972,14 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 The new app UI is rolling out in phases over 2023.
 Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
+     </string>
+
+      <string id="bUpdateToSingleApp">Stop automatic upgrade of Acrobat Reader 32-bit to Acrobat Reader 64-bit</string>
+      <string id="bUpdateToSingleApp_Help">
+To stop the Acrobat Reader 32-bit application from automatically upgrading to the 64-bit version,
+set the following before the first launch of the application:
+Set to Disabled to: Stop upgrading
+Set to Enabled to: automatically upgrade to 64-bit version
      </string>
 
       <string id="bDisableThumbnailPreviewHandler">Disable thumbnails in Windows Explorer</string>

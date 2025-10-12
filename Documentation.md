@@ -121,6 +121,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/TrustManager.h
 
 ### Other
 
+#### bUpdateToSingleApp
+
+https://helpx.adobe.com/acrobat/kb/about-acrobat-reader-dc-migration-to-64-bit.html
+
 #### bDisableThumbnailPreviewHandler
 
 https://www.adobe.com/devnet-docs/acrobatetk/tools/Wizard/othersettings.html#disable-thumbnails-in-windows-explorer
