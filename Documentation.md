@@ -309,6 +309,10 @@ http://www.adobe.com/devnet-docs/acrobatetk/tools/PrefRef/Windows/Workflows.html
 
 https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
 
+#### bMIPExternalAuthAdmin
+
+https://helpx.adobe.com/enterprise/kb/mpip-support-acrobat.html
+
 <a name="HKCU"/>
 
 ## HKCU

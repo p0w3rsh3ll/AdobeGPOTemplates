@@ -175,6 +175,18 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </categories>
   <policies>
 
+  <policy name="bMIPExternalAuthAdmin"
+  class="Machine"
+  displayName="`$(string.bMIPExternalAuthAdmin)"
+  explainText="`$(string.bMIPExternalAuthAdmin_Help)"
+  key="Software\Policies\Adobe\$($f)\$($v)\FeatureLockDown"
+  valueName="bMIPExternalAuthAdmin">
+  <parentCategory ref="MPIPCategory"/>
+  <supportedOn ref="adobe:SUPPORTED_Windows7" />
+  <enabledValue><decimal value="1" /></enabledValue>
+  <disabledValue><decimal value="0" /></disabledValue>
+</policy>
+
   <policy name="bMIPCheckPolicyOnDocSave"
   class="Machine"
   displayName="`$(string.bMIPCheckPolicyOnDocSave)"
@@ -1009,6 +1021,12 @@ Set to Disabled to: Don't show the Modern Viewer
 Set to Enabled to: Show the Modern Viewer
      </string>
 
+      <string id="bMIPExternalAuthAdmin">Enable browser authentication for MPIP operations</string>
+      <string id="bMIPExternalAuthAdmin_Help">
+Set to Disabled to: disable the browser authentication for MPIP operations
+Set to Enabled to: enable the browser authentication for MPIP operations
+     </string>
+
       <string id="bMIPCheckPolicyOnDocSave">Enable the Default and Mandatory labelling</string>
       <string id="bMIPCheckPolicyOnDocSave_Help">
 You may be forced to apply labels (mandatory labeling) or the default label may be applied on your PDF if you don't set one (default labeling).
@@ -1451,6 +1469,7 @@ Not Configured and Disabled have the same behavior.
       <presentation id="AdobeSendPluginToggle" />
       <presentation id="bShowDMB" />
       <presentation id="bMIPCheckPolicyOnDocSave" />
+      <presentation id="bMIPExternalAuthAdmin" />
 
       <presentation id="HyperlinksUserList_Dropdown">
         <dropdownList defaultItem="2" refId="HyperlinksUserListMode">Hyperlinks in user list</dropdownList>
