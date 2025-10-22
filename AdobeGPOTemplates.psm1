@@ -1,4 +1,4 @@
-﻿
+
 Function New-AdobeGPOTemplate {
 <#
     .SYNOPSIS
@@ -52,6 +52,8 @@ Param(
 )
 Begin {
     try {
+    $moduleVersion = "$($MyInvocation.MyCommand.Version.ToString())"
+    Write-Verbose -Message "AdobeGPOTemplate module version in use: $($moduleVersion)"
         @'
 <?xml version="1.0" encoding="utf-8"?>
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -79,8 +81,9 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 </categories>
 </policyDefinitions>
 <!-- Created by module version {0} -->
-'@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+'@  -f $($moduleVersion) |
      Out-File -FilePath Adobe.admx -Encoding UTF8 -ErrorAction Stop
+     Write-Verbose -Message 'Successfully created Adobe.admx file'
     } catch {
      Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
     }
@@ -102,8 +105,9 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   </resources>
 </policyDefinitionResources>
 <!-- Created by module version {0} -->
-'@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+'@ -f $($moduleVersion) |
      Out-File -FilePath Adobe.adml -Encoding UTF8 -ErrorAction Stop
+     Write-Verbose -Message 'Successfully created Adobe.adml file'
     } catch {
      Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
     }
@@ -1047,9 +1051,10 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
 
   </policies>
 </policyDefinitions>
-<!-- Created by module version {0} -->
-"@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+<!-- Created by module version $($moduleVersion)  -->
+"@ |
                  Out-File -FilePath $ADMXfile -ErrorAction Stop -Encoding UTF8
+                 Write-Verbose -Message "Successfully created $($ADMXfile)"
                 } catch {
                  Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
                 }
@@ -1582,8 +1587,9 @@ Not Configured and Disabled have the same behavior.
   </resources>
 </policyDefinitionResources>
 <!-- Created by module version {0} -->
-"@ -f "$($MyInvocation.MyCommand.Version.ToString())" |
+"@ -f $($moduleVersion) |
                  Out-File -FilePath $ADMLfile -ErrorAction Stop -Encoding UTF8
+                 Write-Verbose -Message "Successfully created $($ADMLfile)"
                 } catch {
                  Write-Warning -Message "Failed to create template because $($_.Exception.Message)"
                 }
@@ -1594,3 +1600,5 @@ Not Configured and Disabled have the same behavior.
 }
 End {}
 } #endof function
+
+Export-ModuleMember -Function 'New-AdobeGPOTemplate'
