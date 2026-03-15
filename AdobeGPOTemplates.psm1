@@ -149,6 +149,7 @@ revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPoli
   <policyNamespaces>
     <target prefix="$($p)" namespace="Microsoft.Policies.Adobe.$($p).$($catID)" />
     <using prefix="adobe"    namespace="Microsoft.Policies.adobe" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
   </policyNamespaces>
   <resources minRequiredRevision="1.0" />
   <categories>
